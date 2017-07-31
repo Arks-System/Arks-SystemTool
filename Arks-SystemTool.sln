@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arks-SystemTool", "Arks-SystemTool\Arks-SystemTool.csproj", "{4532D092-BF00-4741-892D-716C5526D479}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arks-SystemToolCLI", "Arks-SystemToolCLI\Arks-SystemToolCLI.csproj", "{1A06E4D4-5370-4832-B216-DC435535A31E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4532D092-BF00-4741-892D-716C5526D479} = {4532D092-BF00-4741-892D-716C5526D479}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4532D092-BF00-4741-892D-716C5526D479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4532D092-BF00-4741-892D-716C5526D479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4532D092-BF00-4741-892D-716C5526D479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4532D092-BF00-4741-892D-716C5526D479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A06E4D4-5370-4832-B216-DC435535A31E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A06E4D4-5370-4832-B216-DC435535A31E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A06E4D4-5370-4832-B216-DC435535A31E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A06E4D4-5370-4832-B216-DC435535A31E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
