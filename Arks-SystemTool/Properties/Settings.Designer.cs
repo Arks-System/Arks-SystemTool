@@ -98,9 +98,21 @@ namespace Arks_SystemTool.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2017-08-01")]
-        public global::System.DateTime current_patch_version {
+        public global::System.DateTime current_patch_date {
             get {
-                return ((global::System.DateTime)(this["current_patch_version"]));
+                return ((global::System.DateTime)(this["current_patch_date"]));
+            }
+            set {
+                this["current_patch_date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("v50001_rc_28")]
+        public string current_patch_version {
+            get {
+                return ((string)(this["current_patch_version"]));
             }
             set {
                 this["current_patch_version"] = value;

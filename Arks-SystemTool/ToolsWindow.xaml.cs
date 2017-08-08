@@ -26,6 +26,7 @@ namespace Arks_SystemTool
 
         private void button_ok_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = true;
             this.Close();
         }
     }

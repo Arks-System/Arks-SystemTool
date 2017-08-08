@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arks-SystemToolCLI", "Arks-
 		{4532D092-BF00-4741-892D-716C5526D479} = {4532D092-BF00-4741-892D-716C5526D479}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arks-SystemToolUpdater", "Arks-SystemToolUpdater\Arks-SystemToolUpdater.csproj", "{C2C05C37-7786-4590-8C61-E137FDB4D2AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{1A06E4D4-5370-4832-B216-DC435535A31E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A06E4D4-5370-4832-B216-DC435535A31E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A06E4D4-5370-4832-B216-DC435535A31E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C05C37-7786-4590-8C61-E137FDB4D2AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C05C37-7786-4590-8C61-E137FDB4D2AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C05C37-7786-4590-8C61-E137FDB4D2AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C05C37-7786-4590-8C61-E137FDB4D2AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
