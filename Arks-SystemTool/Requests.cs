@@ -10,41 +10,24 @@ namespace Arks_SystemTool
 {
     public class Requests
     {
-        private HttpWebRequest _requests;
-        private String _uri;
-
-        public Requests(String uri)
+        static public String Get(String url)
         {
-            this._requests = (HttpWebRequest)WebRequest.Create(uri);
-            this._requests.UserAgent = "AQUA_HTTP";
-            this._uri = uri;
+            String data = String.Empty;
+            using (WebClient web = new WebClient())
+            {
+                web.Headers.Add("User-Agent: AQUA_HTTP");
+                data = web.DownloadString(url);
+            }
+            return (data);
         }
 
-        public String Get()
+        static public void Download(String url, String path)
         {
-            this._requests.Method = "GET";
-            try
+            using (WebClient web = new WebClient())
             {
-                Stream s = this._requests.GetResponse().GetResponseStream();
-                StringBuilder builder = new StringBuilder();
-                using (StreamReader reader = new StreamReader(s))
-                {
-                    builder.Append(reader.ReadToEnd());
-                }
-
-                return (builder.ToString());
+                web.Headers.Add("User-Agent: AQUA_HTTP");
+                web.DownloadFile(url, path);
             }
-            catch (WebException e)
-            {
-                return ("");
-            }
-            
-        }
-
-        public void Download(String path)
-        {
-            this._requests.Method = "GET";
-            Stream s = this._requests.GetResponse().GetResponseStream();
         }
     }
 }

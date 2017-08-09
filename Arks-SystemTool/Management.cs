@@ -14,38 +14,47 @@ namespace Arks_SystemTool
 
         public Management()
         {
-            this._base = new Dictionary<string, string>();
+            String management = Requests.Get(management_beta);
+            this._base = new Dictionary<String, String>();
             this._patchlist = new List<Patchlist>();
-            Requests r = new Requests(management_beta);
 
-            foreach (var e in r.Get().Split('\n'))
+            foreach (var e in management.Split('\n'))
             {
                 List<String> lst = new List<String>(e.Replace("\r", "").Split('='));
                 if (lst[0] == "MasterURL" || lst[0] == "PatchURL")
                 {
                     this._base.Add(lst[0], lst[1]);
-                    _BuildPatchlist(lst[1]);
+                    //_BuildPatchlist(lst[1]);
                 }
             }
+            foreach (KeyValuePair<String, String> entry in this._base)
+            {
+                this._BuildPatchlist(entry.Value);
+            }
+        }
+
+        public List<Patchlist> GetPatchlist()
+        {
+            return (this._patchlist);
         }
 
         private void _BuildPatchlist(String uri)
         {
-            Requests r = new Requests(uri);
+            String r = Requests.Get(String.Format("{0}patchlist.txt", uri));
 
-            foreach (var e in r.Get().Split('\n'))
+            foreach (var e in r.Split('\n'))
             {
                 if (e.Length > 0)
-                    this._patchlist.Add(new Patchlist(e.Replace("\r", ""), uri));
+                    this._patchlist.Add(new Patchlist(e.Replace("\r", ""), this));
             }
         }
 
-        public String GetMasterBase()
+        public String GetMasterBaseURL()
         {
             return (this._base["MasterURL"]);
         }
 
-        public String GetPatchBase()
+        public String GetPatchBaseURL()
         {
             return (this._base["PatchURL"]);
         }
@@ -59,10 +68,5 @@ namespace Arks_SystemTool
             else
                 return ("");
         }
-
-        //public List<Patchlist> GetPatchlist()
-        //{
-        //    return (this._patchlist);
-        //}
     }
 }

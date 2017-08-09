@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Arks_SystemTool
 {
-    class Patchlist
+    public class Patchlist
     {
         private List<String> _line;
         public String filename { get; set; }
@@ -16,6 +16,7 @@ namespace Arks_SystemTool
         public UInt64 size { get; set; }
         public String flags { get; set; }
         public String management { get; set; }
+        public String patchBase { get; set; }
 
         public new String ToString
         {
@@ -25,7 +26,7 @@ namespace Arks_SystemTool
             }
         }
 
-        public Patchlist(String line, String uri)
+        public Patchlist(String line, Management management)
         {
             this._line = new List<String>(line.Split('\t'));
             this.filename = this._line[0];
@@ -34,7 +35,8 @@ namespace Arks_SystemTool
             this.size = UInt64.Parse(this._line[2]);
             this.flags = String.Join("\t", this._line.GetRange(3, this._line.Count() - 3));
             this.management = this._line[3];
-            this.url = uri + this.filename;
+            this.url = management.Get(this._line[3][0]) + this.filename;
+            this.patchBase = management.Get(this._line[3].ToCharArray()[0]);
         }
 
     }
