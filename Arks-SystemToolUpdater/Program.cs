@@ -12,6 +12,7 @@ namespace Arks_SystemUpdater
         static void Main(string[] args)
         {
             Console.Title = "Arks-System Tool Updated";
+
 #if DEBUG
             TimeSpan ts = DateTime.Now - Process.GetCurrentProcess().StartTime;
             Console.WriteLine("Total runtime: {0}s", ts.TotalMilliseconds / 1000);

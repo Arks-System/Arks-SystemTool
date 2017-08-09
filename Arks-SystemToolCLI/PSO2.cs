@@ -14,18 +14,12 @@ namespace Arks_SystemToolCLI
         {
             String version = "";
             String url = @"http://patch.arks-system.eu/patch_prod/patches/version.ver";
-
-            HttpWebRequest requ = (HttpWebRequest)WebRequest.Create(url);
-            requ.UserAgent = "AQUA_HTTP";
-
-            using (HttpWebResponse resp = (HttpWebResponse)requ.GetResponse())
-            using (Stream stream = resp.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            using (WebClient web = new WebClient())
             {
-                version = reader.ReadToEnd();
+                web.Headers.Add("User-Agent: AQUA_HTTP");
+                version =  web.DownloadString(url);
             }
-            //Console.WriteLine("Version {0}", version);
-            return (version);
+            return (version.Trim());
         }
 
         public static String GetManagement()
@@ -33,17 +27,12 @@ namespace Arks_SystemToolCLI
             String management = "";
             String url = @"http://patch.arks-system.eu/patch_prod/patches/management_beta.txt";
 
-            HttpWebRequest requ = (HttpWebRequest)WebRequest.Create(url);
-            requ.UserAgent = "AQUA_HTTP";
-
-            using (HttpWebResponse resp = (HttpWebResponse)requ.GetResponse())
-            using (Stream stream = resp.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            using (WebClient web = new WebClient())
             {
-                management = reader.ReadToEnd();
+                web.Headers.Add("User-Agent: AQUA_HTTP");
+                management = web.DownloadString(url);
             }
-            //Console.WriteLine("Version {0}", version);
-            return (management);
+            return (management.Trim());
         }
 
 

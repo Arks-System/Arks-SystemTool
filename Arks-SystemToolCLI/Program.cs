@@ -16,20 +16,16 @@ namespace Arks_SystemToolCLI
         static void Main(string[] args)
         {
             Console.Title = "Arks-System Tool CLI";
+#if DEBUG
+            Console.WriteLine("Version: {0}", PSO2.GetVersion());
+            Console.WriteLine("Management:\n{0}", PSO2.GetManagement());
+#endif
 
-            Management man = new Management();
+            //Management man = new Management();
 
-            //Console.WriteLine("Version: {0}", PSO2.GetVersion());
-            /*
-            using (WebClient web = new WebClient())
-            {
-                web.Headers.Add("User-Agent: AQUA_HTTP");
-                Console.WriteLine("Version: {0}", web.DownloadString("http://download.pso2.jp/patch_prod/patches/version.ver"));
-            }
-            */
 #if DEBUG
             TimeSpan ts = DateTime.Now - Process.GetCurrentProcess().StartTime;
-            Console.WriteLine("Total runtime: {0}s", ts.TotalMilliseconds / 1000);
+            Console.WriteLine("\nTotal runtime: {0}s", ts.TotalMilliseconds / 1000);
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
 #endif
