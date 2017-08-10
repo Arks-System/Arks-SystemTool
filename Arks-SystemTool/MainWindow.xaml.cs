@@ -45,19 +45,23 @@ namespace Arks_SystemTool
 
         private void _button_filecheck_Click(object sender, RoutedEventArgs e)
         {
-
+            FilecheckWindow window = new FilecheckWindow();
+            
+            window.Owner = this;
+            window.ShowDialog();
         }
         private void _button_tools_Click(object sender, RoutedEventArgs e)
         {
             ToolsWindow window = new ToolsWindow();
+
             window.Owner = this;
             window.ShowDialog();
         }
         private void _button_settings_Click(object sender, RoutedEventArgs e)
         {
             SettingsWindow window = new SettingsWindow();
-            window.Owner = this;
 
+            window.Owner = this;
             if ((bool)window.ShowDialog())
                 Arks_SystemTool.Properties.Settings.Default.Reload();
         }

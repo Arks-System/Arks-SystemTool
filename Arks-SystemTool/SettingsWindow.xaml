@@ -7,11 +7,10 @@
         mc:Ignorable="d"
         Title="Settings" Height="220" Width="500"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterOwner"
         Icon="Resources/short_blue_512.png"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-        Loaded="_Window_Loaded">
+        Loaded="_Window_Loaded" ShowInTaskbar="False">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

@@ -1,18 +1,16 @@
-﻿<Window x:Class="Arks_SystemTool.ToolsWindow"
+﻿<Window x:Class="Arks_SystemTool.FilecheckWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arks_SystemTool"
         mc:Ignorable="d"
-        Title="Tools" Height="300" Width="300"
-        Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-        ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner"
+        Title="Filecheck" Height="300" Width="300"
         Icon="Resources/short_blue_512.png"
-        ShowInTaskbar="False">
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" ShowInTaskbar="False">
     <Grid>
-        <Button x:Name="button_ok" Content="Button" Click="button_ok_Click"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-
+        
     </Grid>
 </Window>

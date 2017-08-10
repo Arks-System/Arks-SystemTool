@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace Arks_SystemTool
 {
     public class Patchlist
     {
         private List<String> _line;
+        //private String[] _line;
         public String filename { get; set; }
         public String path { get; set; }
         public String url { get; set; }
@@ -29,6 +32,7 @@ namespace Arks_SystemTool
         public Patchlist(String line, Management management)
         {
             this._line = new List<String>(line.Split('\t'));
+            //this._line = line.Split('\t');
             this.filename = this._line[0];
             this.path = this._line[0];
             this.hash = this._line[1];
@@ -39,5 +43,20 @@ namespace Arks_SystemTool
             this.patchBase = management.Get(this._line[3].ToCharArray()[0]);
         }
 
+        public bool IsSame(String path)
+        {
+            if (!File.Exists(path))
+                return (false);
+            using (MD5 md5 = MD5.Create())
+            {
+                using (Stream stream = File.OpenRead(path))
+                {
+                    byte[] hash = md5.ComputeHash(stream);
+                    String str = BitConverter.ToString(hash).Replace("-", String.Empty);
+
+                    return (str.ToUpper() == this.hash.ToUpper());
+                }
+            }
+        }
     }
 }
