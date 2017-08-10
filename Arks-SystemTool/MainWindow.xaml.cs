@@ -21,9 +21,18 @@ namespace Arks_SystemTool
     /// </summary>
     public partial class MainWindow : Window
     {
+        PSO2 _pso2;
         public MainWindow()
         {
             InitializeComponent();
+            this._pso2 = new PSO2();
+        }
+
+        private void _Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Check game version
+            // Update according to the settings
+            this._label_version.Content = this._pso2.GetRemoteVersion();
         }
 
         private void _EnableLaunch(object o, ElapsedEventArgs e)
@@ -64,12 +73,6 @@ namespace Arks_SystemTool
             window.Owner = this;
             if ((bool)window.ShowDialog())
                 Arks_SystemTool.Properties.Settings.Default.Reload();
-        }
-
-        private void _Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            // Check game version
-            // Update according to the settings
         }
     }
 }

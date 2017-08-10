@@ -17,12 +17,14 @@ namespace Arks_SystemToolCLI
         {
             Console.Title = "Arks-System Tool CLI";
 #if DEBUG
-            Console.WriteLine("Version: {0}", PSO2.GetVersion());
+            Console.WriteLine("Version: {0} ({1})", PSO2.GetVersion(), PSO2.GetGameVersion());
             Console.WriteLine("Management:\n{0}", PSO2.GetManagement());
 #endif
 
-            //Management man = new Management();
+            Management man = new Management();
+            List<Patchlist> patchlist = man.GetPatchlist();
 
+            Console.WriteLine("Patchlist total count: {0}", patchlist.Count.ToString());
 #if DEBUG
             TimeSpan ts = DateTime.Now - Process.GetCurrentProcess().StartTime;
             Console.WriteLine("\nTotal runtime: {0}s", ts.TotalMilliseconds / 1000);

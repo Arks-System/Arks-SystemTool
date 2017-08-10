@@ -16,7 +16,7 @@ namespace Arks_SystemTool
         {
             String management = Requests.Get(management_beta);
             this._base = new Dictionary<String, String>();
-            this._patchlist = new List<Patchlist>();
+            this._patchlist = null;
 
             foreach (var e in management.Split('\n'))
             {
@@ -24,23 +24,33 @@ namespace Arks_SystemTool
                 if (lst[0] == "MasterURL" || lst[0] == "PatchURL")
                 {
                     this._base.Add(lst[0], lst[1]);
-                    //_BuildPatchlist(lst[1]);
                 }
-            }
-            foreach (KeyValuePair<String, String> entry in this._base)
-            {
-                this._BuildPatchlist(entry.Value);
             }
         }
 
         public List<Patchlist> GetPatchlist()
         {
-            return (this._patchlist);
+            List<String> lists = new List<string>();
+            List<Patchlist> patchlist = new List<Patchlist>();
+
+            lists.Add(this._base["PatchURL"]);
+
+            foreach (var entry in lists)
+            {
+                String url = String.Format("{0}patchlist.txt", entry);
+                foreach (String e in Requests.Get(url).Trim('\r').Split('\n'))
+                {
+                    if (e.Length > 0)
+                        patchlist.Add(new Patchlist(e, this));
+                }
+            }
+            return (patchlist);
         }
 
         private void _BuildPatchlist(String uri)
         {
             String r = Requests.Get(String.Format("{0}patchlist.txt", uri));
+            this._patchlist = new List<Patchlist>();
 
             foreach (var e in r.Split('\n'))
             {

@@ -10,22 +10,32 @@ namespace Arks_SystemToolCLI
 {
     class PSO2
     {
-        public static String GetVersion()
+        public static String GetVersion(String source = "http://download.pso2.jp/")
         {
             String version = "";
-            String url = @"http://patch.arks-system.eu/patch_prod/patches/version.ver";
+            String url = String.Format("{0}/patch_prod/patches/version.ver", source);
             using (WebClient web = new WebClient())
             {
                 web.Headers.Add("User-Agent: AQUA_HTTP");
-                version =  web.DownloadString(url);
+                version = web.DownloadString(url);
             }
             return (version.Trim());
         }
-
-        public static String GetManagement()
+        public static String GetGameVersion(String source = "http://download.pso2.jp/")
+        {
+            String version = "";
+            String url = String.Format("{0}/patch_prod/patches/gameversion.ver.pat", source);
+            using (WebClient web = new WebClient())
+            {
+                web.Headers.Add("User-Agent: AQUA_HTTP");
+                version = web.DownloadString(url);
+            }
+            return (version.Trim());
+        }
+        public static String GetManagement(String source = "http://patch01.pso2gs.net/")
         {
             String management = "";
-            String url = @"http://patch.arks-system.eu/patch_prod/patches/management_beta.txt";
+            String url = String.Format("{0}/patch_prod/patches/management_beta.txt", source);
 
             using (WebClient web = new WebClient())
             {

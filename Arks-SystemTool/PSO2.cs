@@ -13,6 +13,7 @@ namespace Arks_SystemTool
     {
         public String gamepath { get; set; }
         public String version { get; set; }
+        public String gameversion { get; set; }
         public String[] binaries = {"pso2.exe",
             "pso2launcher.exe",
             "pso2download.exe",
@@ -43,6 +44,14 @@ namespace Arks_SystemTool
                 Process.Start(pso2, "+0x33aca2b9");
                 Thread.Sleep(2000);
             }
+        }
+
+        public String GetRemoteVersion(String remoteURL = "http://download.pso2.jp")
+        {
+            Management man = new Management();
+            String url = String.Format("{0}gameversion.ver.pat", man.GetPatchBaseURL());
+            String version = Requests.Get(url);
+            return (version);
         }
 
         public bool IsRunning()

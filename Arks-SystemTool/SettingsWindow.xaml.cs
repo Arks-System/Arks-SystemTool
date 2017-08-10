@@ -30,8 +30,9 @@ namespace Arks_SystemTool
 
             Arks_SystemTool.Properties.Settings.Default.pso2_path = this.textBox_path.Text;
             Arks_SystemTool.Properties.Settings.Default.remove_censorship = (bool)this.checkBox_censorship.IsChecked;
-            Arks_SystemTool.Properties.Settings.Default.translate = (bool)this.checkBox_censorship.IsChecked;
+            Arks_SystemTool.Properties.Settings.Default.translate = (bool)this.checkBox_translate.IsChecked;
             Arks_SystemTool.Properties.Settings.Default.keep_enemy_jpnames = (bool)this.checkBox_keep_jp_ennemy.IsChecked;
+            Arks_SystemTool.Properties.Settings.Default.keep_et_jpnames = (bool)this.checkBox_keep_jp_et.IsChecked;
             Arks_SystemTool.Properties.Settings.Default.clean_gg_atlaunch = (bool)this.checkBox_deletegg_atlaunch.IsChecked;
             Arks_SystemTool.Properties.Settings.Default.Save();
             Arks_SystemTool.Properties.Settings.Default.Reload();
@@ -55,6 +56,7 @@ namespace Arks_SystemTool
         private void _Window_Loaded(object sender, RoutedEventArgs e)
         {
             Properties.Settings settings = Arks_SystemTool.Properties.Settings.Default;
+
             this.SizeToContent = SizeToContent.Height;
 
             this.checkBox_censorship.IsChecked = settings.remove_censorship;
