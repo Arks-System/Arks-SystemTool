@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arks_SystemTool.Properties"
         mc:Ignorable="d"
-        Title="{x:Static local:Resources.title_main_window}" Height="350" Width="525" ResizeMode="NoResize"
+        Title="{x:Static local:Resources.title_main_window}"
+        Height="350" Width="525" ResizeMode="NoResize"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         Icon="Resources/short_blue_512.png"
         Loaded="_Window_Loaded" WindowStartupLocation="CenterScreen">

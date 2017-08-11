@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Timers;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace Arks_SystemTool
 {
@@ -22,10 +22,13 @@ namespace Arks_SystemTool
     public partial class MainWindow : Window
     {
         PSO2 _pso2;
+        Timer _timer;
         public MainWindow()
         {
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-CA");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-BE");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
             InitializeComponent();
             this._pso2 = new PSO2();
         }
@@ -37,23 +40,21 @@ namespace Arks_SystemTool
             this._label_version.Content = this._pso2.GetRemoteVersion();
         }
 
-        private void _EnableLaunch(object o, ElapsedEventArgs e)
+        private void _EnableLaunch(object o)
         {
+            if (this._pso2.IsRunning())
+                return;
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
+                this._timer.Dispose();
                 this.button_launch.IsEnabled = true;
             }));
         }
 
         private void _button_launch_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            Timer timer = new Timer(5000f);
-
-            timer.Elapsed += new ElapsedEventHandler(this._EnableLaunch);
-            timer.Start();
-            */
-            //<System.Threading.Timer timer = new System.Threading.Timer(
+            this._timer = new Timer(this._EnableLaunch, this._pso2, 0, 1000);
+            
             this.button_launch.IsEnabled = false;
 #if !DEBUG
             if (!this._pso2.IsRunning())

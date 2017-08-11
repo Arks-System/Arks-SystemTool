@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button_cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
   <data name="button_filecheck" xml:space="preserve">
     <value>Filecheck</value>
   </data>
   <data name="button_launch" xml:space="preserve">
     <value>Lancer</value>
+  </data>
+  <data name="button_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="button_reset" xml:space="preserve">
+    <value>Par défaut</value>
   </data>
   <data name="button_settings" xml:space="preserve">
     <value>Options</value>
@@ -135,6 +144,12 @@
   <data name="check_keep_et_jpnames" xml:space="preserve">
     <value>Garder le nom des Emergency Trial en Japonais</value>
   </data>
+  <data name="check_remove_gg_atlaunch" xml:space="preserve">
+    <value>Nettoyer GameGuard à chaque lancement</value>
+  </data>
+  <data name="check_rm_censorship" xml:space="preserve">
+    <value>Retirer la censure</value>
+  </data>
   <data name="check_translate" xml:space="preserve">
     <value>Traduire</value>
   </data>
@@ -145,7 +160,16 @@
   <data name="str_game_uptodate" xml:space="preserve">
     <value>Le jeu est à jour</value>
   </data>
+  <data name="str_path" xml:space="preserve">
+    <value>Chemin:</value>
+  </data>
+  <data name="str_update_source" xml:space="preserve">
+    <value>Serveur source:</value>
+  </data>
   <data name="title_main_window" xml:space="preserve">
     <value>Arks-System Tool</value>
+  </data>
+  <data name="title_settings" xml:space="preserve">
+    <value>Options</value>
   </data>
 </root>

@@ -3,14 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Arks_SystemTool"
+        xmlns:local="clr-namespace:Arks_SystemTool.Properties"
         mc:Ignorable="d"
-        Title="Settings" Height="220" Width="500"
+        Title="{x:Static local:Resources.title_settings}"
+        Height="220" Width="500"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
         Icon="Resources/short_blue_512.png"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-        Loaded="_Window_Loaded" ShowInTaskbar="False"
+        Loaded="_Window_Loaded"
+        ShowInTaskbar="False"
         SizeToContent="Height">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,8 +21,12 @@
             <ColumnDefinition Width="75*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Label Content="Path:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <Label Content="Update source:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <Label Content="{x:Static local:Resources.str_path}"
+                   HorizontalAlignment="Left" Margin="10,10,0,0"
+                   VerticalAlignment="Top"/>
+            <Label Content="{x:Static local:Resources.str_update_source}"
+                   Margin="10,5,0,0"
+                   VerticalAlignment="Top"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="0,0,0,10">
             <StackPanel.Resources>
@@ -31,20 +37,28 @@
                 </Style>
             </StackPanel.Resources>
             
-            <TextBox x:Name="textBox_path" Height="23" Margin="10,10,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="Auto"/>
+            <TextBox x:Name="textBox_path" Height="23" Margin="10,10,10,0" TextWrapping="NoWrap" Text="TextBox" VerticalAlignment="Top" Width="Auto"/>
             
             <ComboBox x:Name="comboBox_source" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1">
                 <ComboBoxItem Content="Arks-System"/>
                 <ComboBoxItem Content="SEGA"/>
             </ComboBox>
 
-            <CheckBox x:Name="checkBox_censorship" Content="Remove censorship" IsChecked="True" />
-            <CheckBox x:Name="checkBox_translate" Content="Translate"
+            <CheckBox x:Name="checkBox_censorship"
+                      Content="{x:Static local:Resources.check_rm_censorship}"
+                      IsChecked="True" />
+            <CheckBox x:Name="checkBox_translate"
+                      Content="{x:Static local:Resources.check_translate}"
                       Checked="_checked_translate"
                       Unchecked="_checked_translate"/>
-            <CheckBox x:Name="checkBox_keep_jp_et" Content="Keep JP ET names" IsEnabled="False" />
-            <CheckBox x:Name="checkBox_keep_jp_ennemy" Content="Keep JP ennemy names" IsEnabled="False" />
-            <CheckBox x:Name="checkBox_deletegg_atlaunch" Content="Clean GameGuard at launch" />
+            <CheckBox x:Name="checkBox_keep_jp_et"
+                      Content="{x:Static local:Resources.check_keep_et_jpnames}"
+                      IsEnabled="False" />
+            <CheckBox x:Name="checkBox_keep_jp_ennemy"
+                      Content="{x:Static local:Resources.check_keep_enemy_jpnames}"
+                      IsEnabled="False" />
+            <CheckBox x:Name="checkBox_deletegg_atlaunch"
+                      Content="{x:Static local:Resources.check_remove_gg_atlaunch}" />
 
         </StackPanel>
         <StackPanel Grid.Column="2">
@@ -58,8 +72,10 @@
                 </Style>
             </StackPanel.Resources>
 
-            <Button Content="OK" Click="_button_ok_Click" />
-            <Button Content="Reset" Click="_button_reset_Click" />
+            <Button Content="{x:Static local:Resources.button_ok}"
+                    Click="_button_ok_Click" />
+            <Button Content="{x:Static local:Resources.button_reset}"
+                    Click="_button_reset_Click" />
         </StackPanel>
     </Grid>
 </Window>

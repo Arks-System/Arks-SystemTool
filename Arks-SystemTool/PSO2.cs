@@ -61,7 +61,8 @@ namespace Arks_SystemTool
 
         public bool IsRunning()
         {
-            return (Process.GetProcessesByName("pso2.exe").Length > 0);
+            Process[] processes = Process.GetProcessesByName("pso2");
+            return (processes.Length > 0);
         }
 
         public void KillGame()

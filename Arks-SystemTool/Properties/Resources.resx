@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button_cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="button_filecheck" xml:space="preserve">
     <value>Filecheck</value>
   </data>
   <data name="button_launch" xml:space="preserve">
     <value>Launch</value>
+  </data>
+  <data name="button_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="button_reset" xml:space="preserve">
+    <value>Default</value>
   </data>
   <data name="button_settings" xml:space="preserve">
     <value>Settings</value>
@@ -135,6 +144,12 @@
   <data name="check_keep_et_jpnames" xml:space="preserve">
     <value>Keep JP Emergency Trial names</value>
   </data>
+  <data name="check_remove_gg_atlaunch" xml:space="preserve">
+    <value>Clean GameGuard at launch</value>
+  </data>
+  <data name="check_rm_censorship" xml:space="preserve">
+    <value>Remove censorship</value>
+  </data>
   <data name="check_translate" xml:space="preserve">
     <value>Tranlate</value>
   </data>
@@ -145,7 +160,16 @@
   <data name="str_game_uptodate" xml:space="preserve">
     <value>The game is up to date</value>
   </data>
+  <data name="str_path" xml:space="preserve">
+    <value>Path:</value>
+  </data>
+  <data name="str_update_source" xml:space="preserve">
+    <value>Source server:</value>
+  </data>
   <data name="title_main_window" xml:space="preserve">
     <value>Arks-System Tool</value>
+  </data>
+  <data name="title_settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>

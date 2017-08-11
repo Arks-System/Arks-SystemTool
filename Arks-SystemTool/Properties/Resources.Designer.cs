@@ -61,6 +61,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string button_cancel {
+            get {
+                return ResourceManager.GetString("button_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filecheck.
         /// </summary>
         public static string button_filecheck {
@@ -75,6 +84,24 @@ namespace Arks_SystemTool.Properties {
         public static string button_launch {
             get {
                 return ResourceManager.GetString("button_launch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string button_ok {
+            get {
+                return ResourceManager.GetString("button_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string button_reset {
+            get {
+                return ResourceManager.GetString("button_reset", resourceCulture);
             }
         }
         
@@ -115,6 +142,24 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clean GameGuard at launch.
+        /// </summary>
+        public static string check_remove_gg_atlaunch {
+            get {
+                return ResourceManager.GetString("check_remove_gg_atlaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove censorship.
+        /// </summary>
+        public static string check_rm_censorship {
+            get {
+                return ResourceManager.GetString("check_rm_censorship", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tranlate.
         /// </summary>
         public static string check_translate {
@@ -143,11 +188,38 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Path:.
+        /// </summary>
+        public static string str_path {
+            get {
+                return ResourceManager.GetString("str_path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source server:.
+        /// </summary>
+        public static string str_update_source {
+            get {
+                return ResourceManager.GetString("str_update_source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arks-System Tool.
         /// </summary>
         public static string title_main_window {
             get {
                 return ResourceManager.GetString("title_main_window", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string title_settings {
+            get {
+                return ResourceManager.GetString("title_settings", resourceCulture);
             }
         }
     }
