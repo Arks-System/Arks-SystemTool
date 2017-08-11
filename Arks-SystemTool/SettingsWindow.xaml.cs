@@ -51,8 +51,8 @@ namespace Arks_SystemTool
 
         private void _checked_translate(object sender, RoutedEventArgs e)
         {
-            this.checkBox_keep_jp_et.IsEnabled = (bool)this.checkBox_translate.IsChecked;
-            this.checkBox_keep_jp_ennemy.IsEnabled = (bool)this.checkBox_translate.IsChecked;
+            //this.checkBox_keep_jp_et.IsEnabled = (bool)this.checkBox_translate.IsChecked;
+            //this.checkBox_keep_jp_ennemy.IsEnabled = (bool)this.checkBox_translate.IsChecked;
         }
 
         private void _Window_Loaded(object sender, RoutedEventArgs e)
@@ -71,6 +71,7 @@ namespace Arks_SystemTool
 
             //this.checkBox_keep_jp_et.IsEnabled = (bool)this.checkBox_translate.IsChecked;
             //this.checkBox_keep_jp_ennemy.IsEnabled = (bool)this.checkBox_translate.IsChecked;
+            this._checked_translate(sender, e);
 
             this.comboBox_source.SelectedIndex = settings.update_source;
         }

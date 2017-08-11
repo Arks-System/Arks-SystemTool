@@ -52,21 +52,24 @@ namespace Arks_SystemTool
             t.Start();
         }
 
-        private void _GetTranslation()
+        private void _CheckTranslation()
         {
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(this._management.Sources[1]);
             //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
             DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
 
+            if (Arks_SystemTool.Properties.Settings.Default.current_patch_version == this._pso2.GetLocalVersion())
+                return;
+
             window.Owner = this;
             if ((bool)window.ShowDialog())
             {
                 String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.pat");
-                this._pso2.ForceGameVersion(version);
-                Arks_SystemTool.Properties.Settings.Default.current_patch_version = String.Empty;
-                Arks_SystemTool.Properties.Settings.Default.Save();
-                Arks_SystemTool.Properties.Settings.Default.Reload();
+                this._pso2.ForceTranslationVersion(version);
+                //Arks_SystemTool.Properties.Settings.Default.current_patch_version = String.Empty;
+                //Arks_SystemTool.Properties.Settings.Default.Save();
+                //Arks_SystemTool.Properties.Settings.Default.Reload();
             }
             else
             {
@@ -78,12 +81,19 @@ namespace Arks_SystemTool
         {
             if (this._pso2.IsRunning())
                 return;
-            Application.Current.Dispatcher.Invoke(new Action(() =>
+            try
             {
-                this._timer.Dispose();
-                this._timer = null;
-                this.button_launch.IsEnabled = true;
-            }));
+                Application.Current.Dispatcher.Invoke(new Action(() =>
+                {
+                    this._timer.Dispose();
+                    this._timer = null;
+                    this.button_launch.IsEnabled = true;
+                }));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         private void _button_launch_Click(object sender, RoutedEventArgs e)
@@ -114,10 +124,18 @@ namespace Arks_SystemTool
             if (Arks_SystemTool.Properties.Settings.Default.translate
                 && Arks_SystemTool.Properties.Settings.Default.current_patch_version != remote_version)
             {
-                if (MessageBox.Show("Patch version missmatch, force versions ?", "Error I guess", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Patch version missmatch, updated translation?", "Error I guess", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    this._CheckTranslation();
+                }
+                else if (MessageBox.Show("Force translation version?", "Ya sure?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
                     this._pso2.ForceTranslationVersion(remote_version);
+                }
                 else
+                {
                     return;
+                }
             }
 #if !DEBUG
             
@@ -139,6 +157,7 @@ namespace Arks_SystemTool
             if ((bool)window.ShowDialog())
             {
                 String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.ver.pat");
+                
                 this._pso2.ForceGameVersion(version);
                 Arks_SystemTool.Properties.Settings.Default.current_patch_version = String.Empty;
                 Arks_SystemTool.Properties.Settings.Default.Save();

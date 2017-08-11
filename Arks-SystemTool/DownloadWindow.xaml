@@ -11,20 +11,25 @@
         WindowStartupLocation="CenterOwner"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         ShowInTaskbar="False"
-        Loaded="_Window_Loaded" Closing="_Window_Closing">
+        Loaded="_Window_Loaded" Closing="_Window_Closing"
+        SizeToContent="Height">
     <Grid>
-        <Label x:Name="_count_label" Content="Label"
+        <Label x:Name="_count_label" Content="1 of many (0000%)"
                HorizontalAlignment="Center"
                Margin="0,20"
                VerticalAlignment="Top"/>
+        <Label x:Name="_timer_label" Content="Timer"
+               HorizontalAlignment="Center"
+               Margin="0,50"
+               VerticalAlignment="Bottom"/>
         <ProgressBar x:Name="_progress"
             Height="10"
-            Margin="10,70,0,0"
-            VerticalAlignment="Top"
-            Width="300" ValueChanged="_progress_Change"/>
+            Margin="10,0,10,0"
+            VerticalAlignment="Center"
+            Width="Auto" ValueChanged="_progress_Change"/>
         <Button
             Content="{x:Static local:Resources.button_cancel}" HorizontalAlignment="Center"
-            Margin="0,126,0,0"
+            Margin="0,126,0,10"
             VerticalAlignment="Top"
             Width="74"
             Click="_button_cancel_Click"/>

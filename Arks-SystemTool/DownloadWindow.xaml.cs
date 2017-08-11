@@ -26,6 +26,8 @@ namespace Arks_SystemTool
         private List<List<Patchlist>> _patchsets;
         private int _max_threads;
         private BackgroundWorker[] _bworkers;
+        private Timer _timer;
+        private DateTime _start;
 
         public DownloadkWindow(List<Patchlist> patchlist = null)
         {
@@ -40,8 +42,19 @@ namespace Arks_SystemTool
             this._bworkers = new BackgroundWorker[this._max_threads];
         }
 
+        private void _ElapsedTimer(object state)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                TimeSpan ts = DateTime.Now - this._start;
+                this._timer_label.Content = ts.ToString(@"hh\:mm\:ss");
+            }));
+        }
+
         private void _Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this._start = DateTime.Now;
+            this._timer = new Timer(_ElapsedTimer, null, 0, 100);
             this._progress.Maximum = this._patchlist.Count;
             for (int i = 0; i < this._patchlist.Count; ++i)
             {
@@ -119,6 +132,7 @@ namespace Arks_SystemTool
                     worker.CancelAsync();
                 worker.Dispose();
             }
+            this._timer.Dispose();
         }
 
         private void _progress_Change(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -126,7 +140,9 @@ namespace Arks_SystemTool
             if (e.NewValue >= this._progress.Maximum)
             {
                 this._progress.Value += 1;
+                this.IsEnabled = false;
                 MessageBox.Show("Download finished!", "Congrats");
+                this.IsEnabled = true;
                 this.DialogResult = true;
                 this.Close();
             }

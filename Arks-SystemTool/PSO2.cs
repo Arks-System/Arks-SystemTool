@@ -57,7 +57,7 @@ namespace Arks_SystemTool
             {
                 Environment.SetEnvironmentVariable("-pso2", "+0x01e3f1e9");
                 Process.Start(pso2, "+0x33aca2b9");
-                Thread.Sleep(2000);
+                //Thread.Sleep(2000);
             }
         }
 
