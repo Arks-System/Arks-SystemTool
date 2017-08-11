@@ -130,7 +130,17 @@ namespace Arks_SystemTool
             return (path);
         }
 
-        public void ForceTranslationVersion(String version)
+        public void ForceGameVersion(String version)
+        {
+            Arks_SystemTool.Properties.Settings.Default.current_patch_version = version;
+            Arks_SystemTool.Properties.Settings.Default.Save();
+            Arks_SystemTool.Properties.Settings.Default.Reload();
+            using (var version_file = new StreamWriter(this.gamepath + @"\gameversion.ver"))
+            {
+                version_file.Write(version + "\r\n");
+            }
+        }
+            public void ForceTranslationVersion(String version)
         {
             Arks_SystemTool.Properties.Settings.Default.current_patch_version = version;
             Arks_SystemTool.Properties.Settings.Default.Save();

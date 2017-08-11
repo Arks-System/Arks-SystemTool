@@ -75,8 +75,8 @@ namespace Arks_SystemTool
                 String path = String.Format(@"{0}\{1}", Arks_SystemTool.Properties.Settings.Default.pso2_path, elem.path.Replace("/", @"\"));
 
 #if DEBUG
-                Console.WriteLine(elem.url);
-                Console.WriteLine(path);
+                //Console.WriteLine(elem.url);
+                //Console.WriteLine(path);
 #endif
 
                 if (worker.CancellationPending)
@@ -87,6 +87,7 @@ namespace Arks_SystemTool
                 if (!File.Exists(path) || !elem.IsSame(path))
                 {
 #if DEBUG
+                    Console.WriteLine(path);
                     Console.WriteLine(elem.url);
                     Console.WriteLine("Missmatch!");
 #endif
@@ -95,7 +96,7 @@ namespace Arks_SystemTool
 #if DEBUG
                 else
                 {
-                    Console.WriteLine("We have a match!"); 
+                    //Console.WriteLine("We have a match!"); 
                 }
 #endif
                 worker.ReportProgress(1);

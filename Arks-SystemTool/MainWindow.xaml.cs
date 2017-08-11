@@ -52,6 +52,28 @@ namespace Arks_SystemTool
             t.Start();
         }
 
+        private void _GetTranslation()
+        {
+            String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
+            Management man = new Management(this._management.Sources[1]);
+            //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
+            DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
+
+            window.Owner = this;
+            if ((bool)window.ShowDialog())
+            {
+                String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.pat");
+                this._pso2.ForceGameVersion(version);
+                Arks_SystemTool.Properties.Settings.Default.current_patch_version = String.Empty;
+                Arks_SystemTool.Properties.Settings.Default.Save();
+                Arks_SystemTool.Properties.Settings.Default.Reload();
+            }
+            else
+            {
+                MessageBox.Show("Download canceled, you will rerun", "Canceled");
+            }
+        }
+
         private void _EnableLaunch(object o)
         {
             if (this._pso2.IsRunning())
@@ -110,12 +132,22 @@ namespace Arks_SystemTool
         {
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(source);
-            //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
-            DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
+            DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
+            //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
             
             window.Owner = this;
-            if ((bool)!window.ShowDialog())
+            if ((bool)window.ShowDialog())
+            {
+                String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.ver.pat");
+                this._pso2.ForceGameVersion(version);
+                Arks_SystemTool.Properties.Settings.Default.current_patch_version = String.Empty;
+                Arks_SystemTool.Properties.Settings.Default.Save();
+                Arks_SystemTool.Properties.Settings.Default.Reload();
+            }
+            else
+            {
                 MessageBox.Show("Download canceled, you will rerun", "Canceled");
+            }
         }
         private void _button_tools_Click(object sender, RoutedEventArgs e)
         {

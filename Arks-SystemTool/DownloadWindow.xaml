@@ -15,7 +15,7 @@
     <Grid>
         <Label x:Name="_count_label" Content="Label"
                HorizontalAlignment="Center"
-               Margin="0"
+               Margin="0,20"
                VerticalAlignment="Top"/>
         <ProgressBar x:Name="_progress"
             Height="10"
