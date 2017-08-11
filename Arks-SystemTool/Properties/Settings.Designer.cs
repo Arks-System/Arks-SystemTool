@@ -118,5 +118,17 @@ namespace Arks_SystemTool.Properties {
                 this["current_patch_version"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int update_source {
+            get {
+                return ((int)(this["update_source"]));
+            }
+            set {
+                this["update_source"] = value;
+            }
+        }
     }
 }

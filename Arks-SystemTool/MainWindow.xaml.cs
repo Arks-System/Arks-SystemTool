@@ -28,16 +28,24 @@ namespace Arks_SystemTool
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-CA");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-BE");
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
             InitializeComponent();
             this._pso2 = new PSO2();
+            this._timer = null;
         }
 
         private void _Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Check game version
             // Update according to the settings
-            this._label_version.Content = this._pso2.GetRemoteVersion();
+            Thread t = new Thread(delegate ()
+            {
+                Application.Current.Dispatcher.Invoke(new Action(() =>
+                {
+                    this._label_version.Content = this._pso2.GetRemoteVersion();
+                }));
+            });
+            t.Start();
         }
 
         private void _EnableLaunch(object o)
@@ -47,6 +55,7 @@ namespace Arks_SystemTool
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 this._timer.Dispose();
+                this._timer = null;
                 this.button_launch.IsEnabled = true;
             }));
         }

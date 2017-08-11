@@ -26,5 +26,8 @@
     <Setting Name="current_patch_version" Type="System.String" Scope="User">
       <Value Profile="(Default)">v50001_rc_28</Value>
     </Setting>
+    <Setting Name="update_source" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

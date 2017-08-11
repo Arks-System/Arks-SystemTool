@@ -34,6 +34,8 @@ namespace Arks_SystemTool
             Arks_SystemTool.Properties.Settings.Default.keep_enemy_jpnames = (bool)this.checkBox_keep_jp_ennemy.IsChecked;
             Arks_SystemTool.Properties.Settings.Default.keep_et_jpnames = (bool)this.checkBox_keep_jp_et.IsChecked;
             Arks_SystemTool.Properties.Settings.Default.clean_gg_atlaunch = (bool)this.checkBox_deletegg_atlaunch.IsChecked;
+            Arks_SystemTool.Properties.Settings.Default.update_source = this.comboBox_source.SelectedIndex;
+
             Arks_SystemTool.Properties.Settings.Default.Save();
             Arks_SystemTool.Properties.Settings.Default.Reload();
 
@@ -69,6 +71,8 @@ namespace Arks_SystemTool
 
             this.checkBox_keep_jp_et.IsEnabled = (bool)this.checkBox_translate.IsChecked;
             this.checkBox_keep_jp_ennemy.IsEnabled = (bool)this.checkBox_translate.IsChecked;
+
+            this.comboBox_source.SelectedIndex = settings.update_source;
         }
     }
 }
