@@ -12,27 +12,42 @@ namespace Arks_SystemTool
         private Dictionary<String, String> _base;
         private List<Patchlist> _patchlist;
 
-        public Management()
+        public Management(String source = null)
         {
-            String management = Requests.Get(management_beta);
+            String management = String.Empty;
+            management = Requests.Get(management_beta);
             this._base = new Dictionary<String, String>();
             this._patchlist = null;
+
+            List<String> repositories = new List<String>();
+
+            repositories.Add("MasterURL");
+            repositories.Add("PatchURL");
+            repositories.Add("TranslationURL");
+
+            if (!String.IsNullOrEmpty(source))
+                management = Requests.Get(management_beta.Replace("http://patch01.pso2gs.net/", source));
+            else
+                management = Requests.Get(management_beta);
 
             foreach (var e in management.Split('\n'))
             {
                 List<String> lst = new List<String>(e.Replace("\r", "").Split('='));
-                if (lst[0] == "MasterURL" || lst[0] == "PatchURL")
+                //if (lst[0] == "MasterURL" || lst[0] == "PatchURL")
+                if (repositories.Contains(lst[0]))
                 {
+                    if (!String.IsNullOrEmpty(source))
+                        lst[1] = lst[1].Replace(PSO2.SegaSource, source);
                     this._base.Add(lst[0], lst[1]);
                 }
             }
         }
 
-        public List<Patchlist> GetPatchlist()
+        public List<Patchlist> GetPatchlist(String source = null)
         {
             List<String> lists = new List<string>();
             List<Patchlist> patchlist = new List<Patchlist>();
-
+            /*
             lists.Add(this._base["PatchURL"]);
 
             foreach (var entry in lists)
@@ -43,6 +58,16 @@ namespace Arks_SystemTool
                     if (e.Length > 0)
                         patchlist.Add(new Patchlist(e, this));
                 }
+            }
+            */
+            if (String.IsNullOrEmpty(source))
+                source = this._base["PatchURL"];
+
+            String url = String.Format("{0}patchlist.txt", source);
+            foreach (String e in Requests.Get(url).Trim('\r').Split('\n'))
+            {
+                if (e.Length > 0)
+                    patchlist.Add(new Patchlist(e, this));
             }
             return (patchlist);
         }
@@ -76,7 +101,7 @@ namespace Arks_SystemTool
             else if (c == 'p')
                 return (this._base["PatchURL"]);
             else
-                return ("");
+                return (String.Empty);
         }
     }
 }

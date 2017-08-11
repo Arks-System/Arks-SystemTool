@@ -12,6 +12,8 @@ namespace Arks_SystemTool
 {
     public class PSO2
     {
+        public static String SegaSource { get { return ("http://download.pso2.jp/"); } }
+        public static String ArksSystemSource { get { return ("https://patch.arks-system.eu/"); } }
         public String gamepath { get; set; }
         public String version { get; set; }
         public String gameversion { get; set; }

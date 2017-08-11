@@ -160,7 +160,7 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tranlate.
+        ///   Looks up a localized string similar to Translate.
         /// </summary>
         public static string check_translate {
             get {
