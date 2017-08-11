@@ -21,10 +21,17 @@ namespace Arks_SystemToolCLI
             Console.WriteLine("Management:\n{0}", PSO2Tools.GetManagement(PSO2Tools.ArksSystemSource));
 #endif
 
-            Management man = new Management(PSO2Tools.ArksSystemSource);
+            Management man = new Management();
             List<Patchlist> patchlist = man.GetPatchlist();
 
-            Console.WriteLine("Patchlist total count: {0}", patchlist.Count.ToString());
+            Console.WriteLine("SEGA Patchlist total count: {0}", patchlist.Count.ToString());
+
+            man = new Management(PSO2.ArksSystemSource);
+            patchlist = man.GetPatchlist();
+
+            Console.WriteLine("Arks-System Patchlist total count: {0}", patchlist.Count.ToString());
+            patchlist = man.GetPatchlist(man.Bases["TranslationURL"]);
+            Console.WriteLine("Arks-System Translation Patchlist total count: {0}", patchlist.Count.ToString());
 #if DEBUG
             TimeSpan ts = DateTime.Now - Process.GetCurrentProcess().StartTime;
             Console.WriteLine("\nTotal runtime: {0}s", ts.TotalMilliseconds / 1000);

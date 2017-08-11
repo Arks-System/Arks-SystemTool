@@ -69,8 +69,8 @@ namespace Arks_SystemTool
 
             this.textBox_path.Text = settings.pso2_path;
 
-            this.checkBox_keep_jp_et.IsEnabled = (bool)this.checkBox_translate.IsChecked;
-            this.checkBox_keep_jp_ennemy.IsEnabled = (bool)this.checkBox_translate.IsChecked;
+            //this.checkBox_keep_jp_et.IsEnabled = (bool)this.checkBox_translate.IsChecked;
+            //this.checkBox_keep_jp_ennemy.IsEnabled = (bool)this.checkBox_translate.IsChecked;
 
             this.comboBox_source.SelectedIndex = settings.update_source;
         }

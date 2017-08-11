@@ -11,6 +11,9 @@ namespace Arks_SystemTool
         static public String management_beta = "http://patch01.pso2gs.net/patch_prod/patches/management_beta.txt";
         private Dictionary<String, String> _base;
         private List<Patchlist> _patchlist;
+        private List<String> _sources;
+        public List<String> Sources { get { return (this._sources); } }
+        public Dictionary<String, String> Bases { get { return (this._base); } }
 
         public Management(String source = null)
         {
@@ -19,7 +22,10 @@ namespace Arks_SystemTool
             this._base = new Dictionary<String, String>();
             this._patchlist = null;
 
-            List<String> repositories = new List<String>();
+            this._sources = new List<String>();
+            this._sources.Add("http://patch01.pso2gs.net/");
+            this._sources.Add("https://patch.arks-system.eu/");
+            List <String> repositories = new List<String>();
 
             repositories.Add("MasterURL");
             repositories.Add("PatchURL");
@@ -43,7 +49,7 @@ namespace Arks_SystemTool
             }
         }
 
-        public List<Patchlist> GetPatchlist(String source = null)
+        public List<Patchlist> GetPatchlist(String sourceBase = null)
         {
             List<String> lists = new List<string>();
             List<Patchlist> patchlist = new List<Patchlist>();
@@ -60,10 +66,10 @@ namespace Arks_SystemTool
                 }
             }
             */
-            if (String.IsNullOrEmpty(source))
-                source = this._base["PatchURL"];
+            if (String.IsNullOrEmpty(sourceBase))
+                sourceBase = this._base["PatchURL"];
 
-            String url = String.Format("{0}patchlist.txt", source);
+            String url = String.Format("{0}patchlist.txt", sourceBase);
             foreach (String e in Requests.Get(url).Trim('\r').Split('\n'))
             {
                 if (e.Length > 0)
@@ -100,8 +106,17 @@ namespace Arks_SystemTool
                 return (this._base["MasterURL"]);
             else if (c == 'p')
                 return (this._base["PatchURL"]);
+            else if (c == 't')
+                return (this._base["TranslationURL"]);
             else
                 return (String.Empty);
+        }
+
+        public String GetRemoteVersion()
+        {
+            String url = String.Format("{0}gameversion.ver.pat", this.GetPatchBaseURL());
+            String version = Requests.Get(url);
+            return (version.Replace("\r\n", ""));
         }
     }
 }

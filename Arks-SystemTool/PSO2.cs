@@ -69,6 +69,19 @@ namespace Arks_SystemTool
             return (version);
         }
 
+        public String GetLocalVersion()
+        {
+            String path = this.gamepath + @"\gameversion.ver";
+            if (File.Exists(path))
+            {
+                using (var version = new StreamReader(path))
+                {
+                    return (version.ReadToEnd().Replace("\r\n", ""));
+                }
+            }
+            return (String.Empty);
+        }
+
         public String DetectGamePath()
         {
             String pso2 = String.Empty;
@@ -115,6 +128,19 @@ namespace Arks_SystemTool
                 }
             }
             return (path);
+        }
+
+        public void ForceTranslationVersion(String version)
+        {
+            Arks_SystemTool.Properties.Settings.Default.current_patch_version = version;
+            Arks_SystemTool.Properties.Settings.Default.Save();
+            Arks_SystemTool.Properties.Settings.Default.Reload();
+            /*
+            using (var version_file = new StreamWriter(this.gamepath + @"\translation.ver"))
+            {
+                version_file.Write(version + "\r\n");
+            }
+            */
         }
 
         public bool IsRunning()

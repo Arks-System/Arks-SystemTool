@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using System.IO;
 
 namespace Arks_SystemTool
 {
@@ -21,8 +22,10 @@ namespace Arks_SystemTool
     /// </summary>
     public partial class MainWindow : Window
     {
-        PSO2 _pso2;
-        Timer _timer;
+        private PSO2 _pso2;
+        private Management _management;
+        private Timer _timer;
+
         public MainWindow()
         {
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-CA");
@@ -31,6 +34,7 @@ namespace Arks_SystemTool
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
             InitializeComponent();
             this._pso2 = new PSO2();
+            this._management = new Management();
             this._timer = null;
         }
 
@@ -62,10 +66,39 @@ namespace Arks_SystemTool
 
         private void _button_launch_Click(object sender, RoutedEventArgs e)
         {
-            this._timer = new Timer(this._EnableLaunch, this._pso2, 0, 1000);
+            String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
+            Management man = new Management(source);
+            String censorship_file = String.Format(@"{0}\data\win32\ffbff2ac5b7a7948961212cefd4d402c", Arks_SystemTool.Properties.Settings.Default.pso2_path);
+            this._timer = new Timer(this._EnableLaunch, this._pso2, 0, 1000 * 10);
+
+            String remote_version = man.GetRemoteVersion();
+            String local_version = this._pso2.GetLocalVersion();
             
             this.button_launch.IsEnabled = false;
+            if (local_version != remote_version)
+            {
+                if (MessageBox.Show("Your version is out of date, update ?", "Hmmm", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                {
+                    if (MessageBox.Show("Launch anyway ?", "rly?", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                        return;
+                }
+                else
+                {
+                    this._button_filecheck_Click(sender, e);
+                }
+            }
+            if (Arks_SystemTool.Properties.Settings.Default.remove_censorship && File.Exists(censorship_file))
+                File.Delete(censorship_file);
+            if (Arks_SystemTool.Properties.Settings.Default.translate
+                && Arks_SystemTool.Properties.Settings.Default.current_patch_version != remote_version)
+            {
+                if (MessageBox.Show("Patch version missmatch, force versions ?", "Error I guess", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    this._pso2.ForceTranslationVersion(remote_version);
+                else
+                    return;
+            }
 #if !DEBUG
+            
             if (!this._pso2.IsRunning())
                 this._pso2.Launch();
             else
@@ -75,10 +108,14 @@ namespace Arks_SystemTool
 
         private void _button_filecheck_Click(object sender, RoutedEventArgs e)
         {
-            FilecheckWindow window = new FilecheckWindow();
+            String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
+            Management man = new Management(source);
+            //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
+            DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
             
             window.Owner = this;
-            window.ShowDialog();
+            if ((bool)!window.ShowDialog())
+                MessageBox.Show("Download canceled, you will rerun", "Canceled");
         }
         private void _button_tools_Click(object sender, RoutedEventArgs e)
         {

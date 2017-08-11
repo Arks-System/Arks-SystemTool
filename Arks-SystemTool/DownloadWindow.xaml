@@ -1,0 +1,32 @@
+﻿<Window x:Class="Arks_SystemTool.DownloadkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Arks_SystemTool.Properties"
+        mc:Ignorable="d"
+        Title="Filecheck" Height="200" Width="400"
+        Icon="Resources/short_blue_512.png"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+        ShowInTaskbar="False"
+        Loaded="_Window_Loaded" Closing="_Window_Closing">
+    <Grid>
+        <Label x:Name="_count_label" Content="Label"
+               HorizontalAlignment="Center"
+               Margin="0"
+               VerticalAlignment="Top"/>
+        <ProgressBar x:Name="_progress"
+            Height="10"
+            Margin="10,70,0,0"
+            VerticalAlignment="Top"
+            Width="300" ValueChanged="_progress_Change"/>
+        <Button
+            Content="{x:Static local:Resources.button_cancel}" HorizontalAlignment="Center"
+            Margin="0,126,0,0"
+            VerticalAlignment="Top"
+            Width="74"
+            Click="_button_cancel_Click"/>
+    </Grid>
+</Window>

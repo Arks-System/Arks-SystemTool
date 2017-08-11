@@ -38,10 +38,10 @@
             </StackPanel.Resources>
             
             <TextBox x:Name="textBox_path" Height="23" Margin="10,10,10,0" TextWrapping="NoWrap" Text="TextBox" VerticalAlignment="Top" Width="Auto"/>
-            
+
             <ComboBox x:Name="comboBox_source" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1">
-                <ComboBoxItem Content="Arks-System"/>
                 <ComboBoxItem Content="SEGA"/>
+                <ComboBoxItem Content="Arks-System"/>
             </ComboBox>
 
             <CheckBox x:Name="checkBox_censorship"
