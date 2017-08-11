@@ -24,6 +24,8 @@ namespace Arks_SystemTool
         PSO2 _pso2;
         public MainWindow()
         {
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
             InitializeComponent();
             this._pso2 = new PSO2();
         }
@@ -45,11 +47,20 @@ namespace Arks_SystemTool
 
         private void _button_launch_Click(object sender, RoutedEventArgs e)
         {
+            /*
             Timer timer = new Timer(5000f);
 
             timer.Elapsed += new ElapsedEventHandler(this._EnableLaunch);
             timer.Start();
+            */
+            //<System.Threading.Timer timer = new System.Threading.Timer(
             this.button_launch.IsEnabled = false;
+#if !DEBUG
+            if (!this._pso2.IsRunning())
+                this._pso2.Launch();
+            else
+                MessageBox.Show("PSO2 already running.", "PSO2 already running", MessageBoxButton.OK);
+#endif
         }
 
         private void _button_filecheck_Click(object sender, RoutedEventArgs e)

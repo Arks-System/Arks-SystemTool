@@ -54,6 +54,11 @@ namespace Arks_SystemTool
             return (version);
         }
 
+        public String DetectGamePath()
+        {
+            return ("");
+        }
+
         public bool IsRunning()
         {
             return (Process.GetProcessesByName("pso2.exe").Length > 0);

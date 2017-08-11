@@ -57,7 +57,7 @@ namespace Arks_SystemTool
         {
             Properties.Settings settings = Arks_SystemTool.Properties.Settings.Default;
 
-            this.SizeToContent = SizeToContent.Height;
+            //this.SizeToContent = SizeToContent.Height;
 
             this.checkBox_censorship.IsChecked = settings.remove_censorship;
             this.checkBox_translate.IsChecked = settings.translate;

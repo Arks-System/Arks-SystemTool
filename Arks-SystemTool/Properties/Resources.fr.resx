@@ -121,29 +121,29 @@
     <value>Filecheck</value>
   </data>
   <data name="button_launch" xml:space="preserve">
-    <value>Launch</value>
+    <value>Lancer</value>
   </data>
   <data name="button_settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Options</value>
   </data>
   <data name="button_tools" xml:space="preserve">
-    <value>Tools</value>
+    <value>Outils</value>
   </data>
   <data name="check_keep_enemy_jpnames" xml:space="preserve">
-    <value>Keep JP enemy names</value>
+    <value>Garder le nom des ennemis en Japonais</value>
   </data>
   <data name="check_keep_et_jpnames" xml:space="preserve">
-    <value>Keep JP Emergency Trial names</value>
+    <value>Garder le nom des Emergency Trial en Japonais</value>
   </data>
   <data name="check_translate" xml:space="preserve">
-    <value>Tranlate</value>
+    <value>Traduire</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="short_blue_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\short_blue_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="str_game_uptodate" xml:space="preserve">
-    <value>The game is up to date</value>
+    <value>Le jeu est à jour</value>
   </data>
   <data name="title_main_window" xml:space="preserve">
     <value>Arks-System Tool</value>

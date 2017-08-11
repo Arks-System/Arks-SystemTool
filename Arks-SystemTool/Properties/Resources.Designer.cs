@@ -22,7 +22,7 @@ namespace Arks_SystemTool.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Arks_SystemTool.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Arks_SystemTool.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Arks_SystemTool.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,52 +63,70 @@ namespace Arks_SystemTool.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Filecheck.
         /// </summary>
-        internal static string filecheck {
+        public static string button_filecheck {
             get {
-                return ResourceManager.GetString("filecheck", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string keep_enemy_jpnames {
-            get {
-                return ResourceManager.GetString("keep_enemy_jpnames", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string keep_eq_jpnames {
-            get {
-                return ResourceManager.GetString("keep_eq_jpnames", resourceCulture);
+                return ResourceManager.GetString("button_filecheck", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Launch.
         /// </summary>
-        internal static string launch {
+        public static string button_launch {
             get {
-                return ResourceManager.GetString("launch", resourceCulture);
+                return ResourceManager.GetString("button_launch", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        internal static string settings {
+        public static string button_settings {
             get {
-                return ResourceManager.GetString("settings", resourceCulture);
+                return ResourceManager.GetString("button_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tools.
+        /// </summary>
+        public static string button_tools {
+            get {
+                return ResourceManager.GetString("button_tools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep JP enemy names.
+        /// </summary>
+        public static string check_keep_enemy_jpnames {
+            get {
+                return ResourceManager.GetString("check_keep_enemy_jpnames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep JP Emergency Trial names.
+        /// </summary>
+        public static string check_keep_et_jpnames {
+            get {
+                return ResourceManager.GetString("check_keep_et_jpnames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tranlate.
+        /// </summary>
+        public static string check_translate {
+            get {
+                return ResourceManager.GetString("check_translate", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap short_blue_512 {
+        public static System.Drawing.Bitmap short_blue_512 {
             get {
                 object obj = ResourceManager.GetObject("short_blue_512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -116,11 +134,20 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tranlate.
+        ///   Looks up a localized string similar to The game is up to date.
         /// </summary>
-        internal static string translate {
+        public static string str_game_uptodate {
             get {
-                return ResourceManager.GetString("translate", resourceCulture);
+                return ResourceManager.GetString("str_game_uptodate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arks-System Tool.
+        /// </summary>
+        public static string title_main_window {
+            get {
+                return ResourceManager.GetString("title_main_window", resourceCulture);
             }
         }
     }

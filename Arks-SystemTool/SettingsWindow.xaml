@@ -10,7 +10,8 @@
         WindowStartupLocation="CenterOwner"
         Icon="Resources/short_blue_512.png"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-        Loaded="_Window_Loaded" ShowInTaskbar="False">
+        Loaded="_Window_Loaded" ShowInTaskbar="False"
+        SizeToContent="Height">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Arks_SystemTool"
+        xmlns:local="clr-namespace:Arks_SystemTool.Properties"
         mc:Ignorable="d"
-        Title="Arks-System Tool" Height="350" Width="525" ResizeMode="NoResize"
+        Title="{x:Static local:Resources.title_main_window}" Height="350" Width="525" ResizeMode="NoResize"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         Icon="Resources/short_blue_512.png"
         Loaded="_Window_Loaded" WindowStartupLocation="CenterScreen">
@@ -32,12 +32,18 @@
                     <Setter Property="Height" Value="20" />
                 </Style>
             </StackPanel.Resources>
-            <Button x:Name="button_launch" Content="Launch"
+            <Button x:Name="button_launch"
+                    Content="{x:Static local:Resources.button_launch}"
                     Width="75" Height="60" Click="_button_launch_Click"/>
-            <Button x:Name="button_filecheck" Content="Filecheck" 
+            <Button x:Name="button_filecheck"
+                    Content="{x:Static local:Resources.button_filecheck}" 
                     Click="_button_filecheck_Click"/>
-            <Button x:Name="button_tools" Content="Tools" Click="_button_tools_Click"/>
-            <Button x:Name="button_settings" Content="Settings" Click="_button_settings_Click"/>
+            <Button x:Name="button_tools"
+                    Content="{x:Static local:Resources.button_tools}"
+                    Click="_button_tools_Click"/>
+            <Button x:Name="button_settings"
+                    Content="{x:Static local:Resources.button_settings}"
+                    Click="_button_settings_Click"/>
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="32" Grid.RowSpan="2" >
             <StatusBar DockPanel.Dock="Bottom">
