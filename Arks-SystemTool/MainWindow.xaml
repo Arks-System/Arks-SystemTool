@@ -48,11 +48,12 @@
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="32" Grid.RowSpan="2" >
             <StatusBar DockPanel.Dock="Bottom">
-                <StatusBarItem>
+                <!--StatusBarItem>
                     <ProgressBar Height="10" Width="50"/>
-                </StatusBarItem>
+                </StatusBarItem-->
                 <StatusBarItem>
-                    <Label Content="The game is up to date"/>
+                    <Label x:Name="_status_label" 
+                        Content="Is the game up to date?"/>
                 </StatusBarItem>
                 <StatusBarItem HorizontalAlignment="Right">
                     <Label x:Name="_label_version" Content="PSO2 v5.000"/>

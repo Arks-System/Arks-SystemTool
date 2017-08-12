@@ -56,6 +56,8 @@ namespace Arks_SystemTool
             this._start = DateTime.Now;
             this._timer = new Timer(_ElapsedTimer, null, 0, 100);
             this._progress.Maximum = this._patchlist.Count;
+            double percent = (this._progress.Value / this._progress.Maximum) * 100f;
+            this._count_label.Content = String.Format("{0} / {1} ({2}%)", this._progress.Value, this._progress.Maximum, percent.ToString("0.00"));
             for (int i = 0; i < this._patchlist.Count; ++i)
             {
                 this._patchsets[i % this._max_threads].Add(this._patchlist[i]);
@@ -83,15 +85,17 @@ namespace Arks_SystemTool
             List<Patchlist> patchlist = e.Argument as List<Patchlist>;
             BackgroundWorker worker = sender as BackgroundWorker;
 
+#if DEBUG
+            Console.WriteLine("Starting thread to treat {0} files", patchlist.Count);
+#endif
             foreach (var elem in patchlist)
             {
                 String path = String.Format(@"{0}\{1}", Arks_SystemTool.Properties.Settings.Default.pso2_path, elem.path.Replace("/", @"\"));
 
 #if DEBUG
-                //Console.WriteLine(elem.url);
-                //Console.WriteLine(path);
+                Console.WriteLine(elem.url);
+                Console.WriteLine(path);
 #endif
-
                 if (worker.CancellationPending)
                 {
                     e.Cancel = true;
@@ -104,12 +108,14 @@ namespace Arks_SystemTool
                     Console.WriteLine(elem.url);
                     Console.WriteLine("Missmatch!");
 #endif
+                    if (!Directory.Exists(Directory.GetParent(path).FullName))
+                        Directory.CreateDirectory(Directory.GetParent(path).FullName);
                     Requests.Download(elem.url, path);
                 }
 #if DEBUG
                 else
                 {
-                    //Console.WriteLine("We have a match!"); 
+                    Console.WriteLine("We have a match!"); 
                 }
 #endif
                 worker.ReportProgress(1);

@@ -46,7 +46,13 @@ namespace Arks_SystemTool
             {
                 Application.Current.Dispatcher.Invoke(new Action(() =>
                 {
-                    this._label_version.Content = this._pso2.GetRemoteVersion();
+                    String remoteversion = this._pso2.GetRemoteVersion().Replace("\r\n", "");
+
+                    this._label_version.Content = remoteversion;
+                    if (remoteversion != this._pso2.GetLocalVersion().Replace("\r\n", ""))
+                        this._status_label.Content = "Up available";
+                    else
+                        this._status_label.Content = "up to date";
                 }));
             });
             t.Start();
@@ -101,7 +107,7 @@ namespace Arks_SystemTool
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(source);
             String censorship_file = String.Format(@"{0}\data\win32\ffbff2ac5b7a7948961212cefd4d402c", Arks_SystemTool.Properties.Settings.Default.pso2_path);
-            this._timer = new Timer(this._EnableLaunch, this._pso2, 0, 1000 * 10);
+            this._timer = new Timer(this._EnableLaunch, this._pso2, 5000, 1000 * 5);
 
             String remote_version = man.GetRemoteVersion();
             String local_version = this._pso2.GetLocalVersion();

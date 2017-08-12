@@ -97,11 +97,18 @@ namespace Arks_SystemTool
                 {
                     using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
                     {
+                        MessageBox.Show("Please select the folder where PSO2 is installed or where you want to install it");
                         dialog.ShowNewFolderButton = true;
+                        dialog.Description = "Select PSO2's path";
                         System.Windows.Forms.DialogResult result = dialog.ShowDialog();
                         if (result == System.Windows.Forms.DialogResult.OK)
                         {
-                            path = result.ToString();
+                            path = dialog.SelectedPath;
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("A valid game folder is required, exit?", "Exit?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                                Environment.Exit(-1);
                         }
                     }
                 }
@@ -114,7 +121,11 @@ namespace Arks_SystemTool
                     if (mb_result == MessageBoxResult.Yes)
                     {
                         if (!Directory.Exists(Directory.GetParent(pso2).FullName))
+                        {
                             Directory.CreateDirectory(Directory.GetParent(pso2).FullName);
+                            Directory.CreateDirectory(Directory.GetParent(pso2).FullName + @"\data\");
+                            Directory.CreateDirectory(Directory.GetParent(pso2).FullName + @"\data\win32\");
+                        }
                         this.gamepath = Directory.GetParent(pso2).FullName;
                     }
                     else if (mb_result == MessageBoxResult.No)
