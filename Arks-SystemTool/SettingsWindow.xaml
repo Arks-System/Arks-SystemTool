@@ -9,7 +9,7 @@
         Height="220" Width="500"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
-        Icon="Resources/short_blue_512.png"
+        Icon="Resources/icon.ico"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         Loaded="_Window_Loaded"
         ShowInTaskbar="False"
@@ -58,7 +58,8 @@
                       Content="{x:Static local:Resources.check_keep_enemy_jpnames}"
                       IsEnabled="False" />
             <CheckBox x:Name="checkBox_deletegg_atlaunch"
-                      Content="{x:Static local:Resources.check_remove_gg_atlaunch}" />
+                      Content="{x:Static local:Resources.check_remove_gg_atlaunch}"
+                      IsEnabled="False" />
 
         </StackPanel>
         <StackPanel Grid.Column="2">

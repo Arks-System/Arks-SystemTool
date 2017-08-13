@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arks_SystemTool.Properties"
         mc:Ignorable="d"
-        Title="SplashWindow" Height="300" Width="500" Loaded="_Window_Loaded" ResizeMode="NoResize" Icon="Resources/icon.ico" WindowStartupLocation="CenterScreen">
+        Title="Arks-System Tool"
+        Height="300" Width="500"
+        Loaded="_Window_Loaded"
+        ResizeMode="NoResize"
+        Icon="Resources/icon.ico"
+        WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Label Content="LOADING"
                VerticalAlignment="Center"

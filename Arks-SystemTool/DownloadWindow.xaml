@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Arks_SystemTool.Properties"
         mc:Ignorable="d"
         Title="Filecheck" Height="200" Width="400"
-        Icon="Resources/short_blue_512.png"
+        Icon="Resources/icon.ico"
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterOwner"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
@@ -14,11 +14,11 @@
         Loaded="_Window_Loaded" Closing="_Window_Closing"
         SizeToContent="Height">
     <Grid>
-        <Label x:Name="_count_label" Content="1 of many (0000%)"
+        <Label x:Name="_count_label" Content="1 of many (0.00%)"
                HorizontalAlignment="Center"
                Margin="0,20"
                VerticalAlignment="Top"/>
-        <Label x:Name="_timer_label" Content="Timer"
+        <Label x:Name="_timer_label" Content="00:00:00"
                HorizontalAlignment="Center"
                Margin="0,50"
                VerticalAlignment="Bottom"/>

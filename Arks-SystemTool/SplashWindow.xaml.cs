@@ -27,6 +27,19 @@ namespace Arks_SystemTool
 
         private void _Window_Loaded(object sender, RoutedEventArgs e)
         {
+            if (this._UpdateAvailable())
+            {
+                this._UpdateArksSystemTool();
+            }
+            else
+            {
+                this._SpawnMainWindow();
+            }
+            this.Close();
+        }
+
+        private void _SpawnMainWindow()
+        {
             PSO2 pso2 = new PSO2();
             MainWindow window = new MainWindow(pso2);
 
@@ -34,7 +47,15 @@ namespace Arks_SystemTool
             this.Hide();
             //Thread.Sleep(3000);
             window.ShowDialog();
-            this.Close();
+        }
+
+        private bool _UpdateAvailable()
+        {
+            return (false);
+        }
+
+        private void _UpdateArksSystemTool()
+        {
         }
     }
 }

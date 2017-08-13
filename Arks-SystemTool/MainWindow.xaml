@@ -8,7 +8,7 @@
         Title="{x:Static local:Resources.title_main_window}"
         Height="350" Width="525" ResizeMode="NoResize"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-        Icon="Resources/short_blue_512.png"
+        Icon="Resources/icon.ico"
         Loaded="_Window_Loaded" WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.ColumnDefinitions>

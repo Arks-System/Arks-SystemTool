@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Arks_SystemTool"
+        xmlns:local="clr-namespace:Arks_SystemTool.Properties"
         mc:Ignorable="d"
         Title="Tools" Height="300" Width="300"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
-        Icon="Resources/short_blue_512.png"
+        Icon="Resources/icon.ico"
         ShowInTaskbar="False">
     <Grid>
         <Button x:Name="button_ok" Content="Button" Click="button_ok_Click"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
