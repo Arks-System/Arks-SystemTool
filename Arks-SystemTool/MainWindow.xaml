@@ -56,10 +56,11 @@
                 </StatusBarItem-->
                 <StatusBarItem>
                     <Label x:Name="_status_label" 
-                        Content="Is the game up to date?"/>
+                        Content="{x:Static local:Resources.str_checking}"/>
                 </StatusBarItem>
                 <StatusBarItem HorizontalAlignment="Right">
-                    <Label x:Name="_label_version" Content="PSO2 v5.000"/>
+                    <Label x:Name="_label_version"
+                           Content="{x:Static local:Resources.str_checking}"/>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>

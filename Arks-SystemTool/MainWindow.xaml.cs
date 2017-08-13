@@ -28,18 +28,14 @@ namespace Arks_SystemTool
 
         public MainWindow(PSO2 pso2)
         {
-            InitializeComponent();
+            this._management = new Management();
             this._timer = null;
             this._pso2 = pso2;
+            InitializeComponent();
         }
 
         private void _Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Check game version
-            // Update according to the settings
-            //this._pso2 = new PSO2();
-            this._management = new Management();
-
             Thread t = new Thread(delegate ()
             {
                 Application.Current.Dispatcher.Invoke(new Action(() =>
@@ -48,9 +44,9 @@ namespace Arks_SystemTool
 
                     this._label_version.Content = remoteversion;
                     if (remoteversion != this._pso2.GetLocalVersion().Replace("\r\n", ""))
-                        this._status_label.Content = "Up available";
+                        this._status_label.Content = Arks_SystemTool.Properties.Resources.str_game_out_of_date;
                     else
-                        this._status_label.Content = "up to date";
+                        this._status_label.Content = Arks_SystemTool.Properties.Resources.str_game_up_to_date;
                 }));
             });
             t.Start();
@@ -60,7 +56,7 @@ namespace Arks_SystemTool
         {
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(this._management.Sources[1]);
-            DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
+            DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_translation_update, man.GetPatchlist(man.Bases["TranslationURL"]));
 
             if (!force || Arks_SystemTool.Properties.Settings.Default.current_patch_version == this._pso2.GetLocalVersion())
                 return;
@@ -73,7 +69,8 @@ namespace Arks_SystemTool
             }
             else
             {
-                MessageBox.Show("Download canceled, you will rerun", "Canceled");
+                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_download_cancelled,
+                    Arks_SystemTool.Properties.Resources.title_translation_update);
             }
         }
 
@@ -109,9 +106,13 @@ namespace Arks_SystemTool
             this.button_launch.IsEnabled = false;
             if (local_version != remote_version)
             {
-                if (MessageBox.Show("Your version is out of date, update ?", "Hmmm", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                if (MessageBox.Show(Arks_SystemTool.Properties.Resources.str_prompt_to_update,
+                    Arks_SystemTool.Properties.Resources.title_update_required,
+                    MessageBoxButton.YesNo) == MessageBoxResult.No)
                 {
-                    if (MessageBox.Show("Launch anyway ?", "rly?", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    if (MessageBox.Show(Arks_SystemTool.Properties.Resources.str_launch_anyway,
+                        Arks_SystemTool.Properties.Resources.title_update_required,
+                        MessageBoxButton.YesNo) == MessageBoxResult.No)
                         return;
                 }
                 else
@@ -124,11 +125,15 @@ namespace Arks_SystemTool
             if (Arks_SystemTool.Properties.Settings.Default.translate
                 && Arks_SystemTool.Properties.Settings.Default.current_patch_version != remote_version)
             {
-                if (MessageBox.Show("Patch version missmatch, updated translation?", "Error I guess", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show(Arks_SystemTool.Properties.Resources.str_translation_missmatch,
+                    Arks_SystemTool.Properties.Resources.title_translation_update,
+                    MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     this._CheckTranslation();
                 }
-                else if (MessageBox.Show("Force translation version?", "Ya sure?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                else if (MessageBox.Show(Arks_SystemTool.Properties.Resources.str_force_translation_version,
+                    Arks_SystemTool.Properties.Resources.title_translation_update,
+                    MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     this._pso2.ForceTranslationVersion(remote_version);
                 }
@@ -142,7 +147,8 @@ namespace Arks_SystemTool
             if (!this._pso2.IsRunning())
                 this._pso2.Launch();
             else
-                MessageBox.Show("PSO2 already running.", "PSO2 already running", MessageBoxButton.OK);
+                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_pso2_already_running,
+            Arks_SystemTool.Properties.Resources.title_pso2_already_running, MessageBoxButton.OK);
 #endif
         }
 
@@ -156,7 +162,7 @@ namespace Arks_SystemTool
             patchlist.AddRange(man.GetPatchlist());
             patchlist.AddRange(man.GetLauncherlist());
 
-            DownloadkWindow window = new DownloadkWindow(patchlist);
+            DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_filecheck, patchlist);
             //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
             //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
             
@@ -172,7 +178,8 @@ namespace Arks_SystemTool
             }
             else
             {
-                MessageBox.Show("Download canceled, you will rerun", "Canceled");
+                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_download_cancelled,
+                    Arks_SystemTool.Properties.Resources.title_filecheck);
             }
             patchlist.Clear();
         }

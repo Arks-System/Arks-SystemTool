@@ -24,9 +24,6 @@
         </ImageBrush>
     </Window.Background>
     <Grid>
-        <!--Label Content="LOADING"
-               VerticalAlignment="Center"
-               HorizontalContentAlignment="Center"/-->
         <ProgressBar HorizontalAlignment="Center"
                      VerticalAlignment="Bottom" 
                      Height="10" Width="400"

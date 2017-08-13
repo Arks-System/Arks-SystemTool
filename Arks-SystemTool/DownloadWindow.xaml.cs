@@ -29,9 +29,9 @@ namespace Arks_SystemTool
         private Timer _timer;
         private DateTime _start;
 
-        public DownloadkWindow(List<Patchlist> patchlist = null)
+        public DownloadkWindow(String title, List<Patchlist> patchlist = null)
         {
-            InitializeComponent();
+            this.Title = title;
             this._patchlist = patchlist;
             this._max_threads = 4;
             this._patchsets = new List<List<Patchlist>>(this._max_threads);
@@ -40,6 +40,7 @@ namespace Arks_SystemTool
                 this._patchsets.Add(new List<Patchlist>());
             }
             this._bworkers = new BackgroundWorker[this._max_threads];
+            InitializeComponent();
         }
 
         private void _ElapsedTimer(object state)
@@ -148,7 +149,8 @@ namespace Arks_SystemTool
             {
                 this._progress.Value += 1;
                 this.IsEnabled = false;
-                MessageBox.Show("Download finished!", "Congrats");
+                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_download_completed,
+                    Arks_SystemTool.Properties.Resources.title_download_completed);
                 this.IsEnabled = true;
                 this.DialogResult = true;
                 this.Close();

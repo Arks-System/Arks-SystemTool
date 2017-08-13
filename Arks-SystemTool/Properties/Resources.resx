@@ -160,19 +160,73 @@
   <data name="short_blue_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\short_blue_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="str_checking" xml:space="preserve">
+    <value>Checking...</value>
+  </data>
+  <data name="str_download_cancelled" xml:space="preserve">
+    <value>Download cancelled, please run a filecheck.</value>
+  </data>
+  <data name="str_download_completed" xml:space="preserve">
+    <value>The download has successfully completed.</value>
+  </data>
+  <data name="str_force_translation_version" xml:space="preserve">
+    <value>Something might not work.\r\nForce translation version anyway?</value>
+  </data>
+  <data name="str_game_out_of_date" xml:space="preserve">
+    <value>Phantasy Star Online 2 is out of date, please consider updating.</value>
+  </data>
   <data name="str_game_uptodate" xml:space="preserve">
     <value>The game is up to date</value>
+  </data>
+  <data name="str_game_up_to_date" xml:space="preserve">
+    <value>Phantasy Star Online 2 is up to date.</value>
+  </data>
+  <data name="str_launch_anyway" xml:space="preserve">
+    <value>Something might not work.\r\nLaunch anyway?</value>
   </data>
   <data name="str_path" xml:space="preserve">
     <value>Path:</value>
   </data>
+  <data name="str_prompt_to_update" xml:space="preserve">
+    <value>Would you like to update?</value>
+  </data>
+  <data name="str_pso2_already_running" xml:space="preserve">
+    <value>It appears PSO2 is already running.\r\nPlease exit the game or reboot.</value>
+  </data>
+  <data name="str_translation_missmatch" xml:space="preserve">
+    <value>It appears the translation version doesn't match the current game version.\r\nWould you like to update the translation?</value>
+  </data>
   <data name="str_update_source" xml:space="preserve">
     <value>Source server:</value>
+  </data>
+  <data name="title_about" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="title_cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="title_download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="title_download_completed" xml:space="preserve">
+    <value>Download completed</value>
+  </data>
+  <data name="title_filecheck" xml:space="preserve">
+    <value>Filecheck</value>
   </data>
   <data name="title_main_window" xml:space="preserve">
     <value>Arks-System Tool</value>
   </data>
+  <data name="title_pso2_already_running" xml:space="preserve">
+    <value>Phantasy Star Online 2 is already running</value>
+  </data>
   <data name="title_settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="title_translation_update" xml:space="preserve">
+    <value>Translation update required</value>
+  </data>
+  <data name="title_update_required" xml:space="preserve">
+    <value>Update required</value>
   </data>
 </root>

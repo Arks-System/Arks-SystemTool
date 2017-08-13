@@ -121,7 +121,7 @@
     <value>Annuler</value>
   </data>
   <data name="button_filecheck" xml:space="preserve">
-    <value>Filecheck</value>
+    <value>Vérification</value>
   </data>
   <data name="button_launch" xml:space="preserve">
     <value>Lancer</value>
@@ -138,6 +138,9 @@
   <data name="button_tools" xml:space="preserve">
     <value>Outils</value>
   </data>
+  <data name="button_translate" xml:space="preserve">
+    <value>Traduire</value>
+  </data>
   <data name="check_keep_enemy_jpnames" xml:space="preserve">
     <value>Garder le nom des ennemis en Japonais</value>
   </data>
@@ -153,19 +156,73 @@
   <data name="check_translate" xml:space="preserve">
     <value>Traduire</value>
   </data>
+  <data name="str_checking" xml:space="preserve">
+    <value>Checking...</value>
+  </data>
+  <data name="str_download_cancelled" xml:space="preserve">
+    <value>Le téléchargement a été annulé, veuillez faire une vérification.</value>
+  </data>
+  <data name="str_download_completed" xml:space="preserve">
+    <value>Le téléchargement a été accompli avec succés.</value>
+  </data>
+  <data name="str_force_translation_version" xml:space="preserve">
+    <value>Voulez-vous forcer la version de la traduction ?\r\nLe bon fonctionnement du jeu n'est pas garanti.</value>
+  </data>
+  <data name="str_game_out_of_date" xml:space="preserve">
+    <value>Phantasy Star Online 2 n'est pas à jour, veuillez le mettre à jour.</value>
+  </data>
   <data name="str_game_uptodate" xml:space="preserve">
     <value>Le jeu est à jour</value>
+  </data>
+  <data name="str_game_up_to_date" xml:space="preserve">
+    <value>Phantasy Star Online 2 est à jour.</value>
+  </data>
+  <data name="str_launch_anyway" xml:space="preserve">
+    <value>Quelque chose pourrait ne pas fonctionner.\r\nVoulez-vous lancer le jeu quoi qu'il arrive ?</value>
   </data>
   <data name="str_path" xml:space="preserve">
     <value>Chemin:</value>
   </data>
+  <data name="str_prompt_to_update" xml:space="preserve">
+    <value>Voulez vous mettre à jour ?</value>
+  </data>
+  <data name="str_pso2_already_running" xml:space="preserve">
+    <value>PSO2 semble déjà lancé.\r\nVeuillez quitter le jeu ou redémarrer votre ordinateur.</value>
+  </data>
+  <data name="str_translation_missmatch" xml:space="preserve">
+    <value>Il semblerait que la version de la traduction et du jeu ne correspondent pas.\r\nVoulez-vous mettre à jour la traduction ?</value>
+  </data>
   <data name="str_update_source" xml:space="preserve">
     <value>Serveur source:</value>
+  </data>
+  <data name="title_about" xml:space="preserve">
+    <value>A propos</value>
+  </data>
+  <data name="title_cancelled" xml:space="preserve">
+    <value>Annulé</value>
+  </data>
+  <data name="title_download" xml:space="preserve">
+    <value>Téléchargement</value>
+  </data>
+  <data name="title_download_completed" xml:space="preserve">
+    <value>Téléchargement accompli</value>
+  </data>
+  <data name="title_filecheck" xml:space="preserve">
+    <value>Vérification</value>
   </data>
   <data name="title_main_window" xml:space="preserve">
     <value>Arks-System Tool</value>
   </data>
+  <data name="title_pso2_already_running" xml:space="preserve">
+    <value>Phantasy Star Online 2 est en cours d'execution</value>
+  </data>
   <data name="title_settings" xml:space="preserve">
     <value>Options</value>
+  </data>
+  <data name="title_translation_update" xml:space="preserve">
+    <value>Mise à jour de la traduction requise</value>
+  </data>
+  <data name="title_update_required" xml:space="preserve">
+    <value>Mise à jour requise</value>
   </data>
 </root>

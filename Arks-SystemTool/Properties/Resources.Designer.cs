@@ -188,11 +188,74 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Checking....
+        /// </summary>
+        public static string str_checking {
+            get {
+                return ResourceManager.GetString("str_checking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download cancelled, please run a filecheck..
+        /// </summary>
+        public static string str_download_cancelled {
+            get {
+                return ResourceManager.GetString("str_download_cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The download has successfully completed..
+        /// </summary>
+        public static string str_download_completed {
+            get {
+                return ResourceManager.GetString("str_download_completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something might not work.\r\nForce translation version anyway?.
+        /// </summary>
+        public static string str_force_translation_version {
+            get {
+                return ResourceManager.GetString("str_force_translation_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phantasy Star Online 2 is out of date, please consider updating..
+        /// </summary>
+        public static string str_game_out_of_date {
+            get {
+                return ResourceManager.GetString("str_game_out_of_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phantasy Star Online 2 is up to date..
+        /// </summary>
+        public static string str_game_up_to_date {
+            get {
+                return ResourceManager.GetString("str_game_up_to_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The game is up to date.
         /// </summary>
         public static string str_game_uptodate {
             get {
                 return ResourceManager.GetString("str_game_uptodate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something might not work.\r\nLaunch anyway?.
+        /// </summary>
+        public static string str_launch_anyway {
+            get {
+                return ResourceManager.GetString("str_launch_anyway", resourceCulture);
             }
         }
         
@@ -206,11 +269,83 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Would you like to update?.
+        /// </summary>
+        public static string str_prompt_to_update {
+            get {
+                return ResourceManager.GetString("str_prompt_to_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It appears PSO2 is already running.\r\nPlease exit the game or reboot..
+        /// </summary>
+        public static string str_pso2_already_running {
+            get {
+                return ResourceManager.GetString("str_pso2_already_running", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It appears the translation version doesn&apos;t match the current game version.\r\nWould you like to update the translation?.
+        /// </summary>
+        public static string str_translation_missmatch {
+            get {
+                return ResourceManager.GetString("str_translation_missmatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Source server:.
         /// </summary>
         public static string str_update_source {
             get {
                 return ResourceManager.GetString("str_update_source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About us.
+        /// </summary>
+        public static string title_about {
+            get {
+                return ResourceManager.GetString("title_about", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string title_cancelled {
+            get {
+                return ResourceManager.GetString("title_cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string title_download {
+            get {
+                return ResourceManager.GetString("title_download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download completed.
+        /// </summary>
+        public static string title_download_completed {
+            get {
+                return ResourceManager.GetString("title_download_completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filecheck.
+        /// </summary>
+        public static string title_filecheck {
+            get {
+                return ResourceManager.GetString("title_filecheck", resourceCulture);
             }
         }
         
@@ -224,11 +359,38 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Phantasy Star Online 2 is already running.
+        /// </summary>
+        public static string title_pso2_already_running {
+            get {
+                return ResourceManager.GetString("title_pso2_already_running", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string title_settings {
             get {
                 return ResourceManager.GetString("title_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translation update required.
+        /// </summary>
+        public static string title_translation_update {
+            get {
+                return ResourceManager.GetString("title_translation_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update required.
+        /// </summary>
+        public static string title_update_required {
+            get {
+                return ResourceManager.GetString("title_update_required", resourceCulture);
             }
         }
     }
