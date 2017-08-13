@@ -26,22 +26,24 @@ namespace Arks_SystemTool
         private Management _management;
         private Timer _timer;
 
-        public MainWindow()
+        public MainWindow(PSO2 pso2)
         {
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-CA");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-BE");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
             InitializeComponent();
-            this._pso2 = new PSO2();
-            this._management = new Management();
             this._timer = null;
+            this._pso2 = pso2;
         }
 
         private void _Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Check game version
             // Update according to the settings
+            //this._pso2 = new PSO2();
+            this._management = new Management();
+
             Thread t = new Thread(delegate ()
             {
                 Application.Current.Dispatcher.Invoke(new Action(() =>
@@ -73,9 +75,6 @@ namespace Arks_SystemTool
             {
                 String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.pat");
                 this._pso2.ForceTranslationVersion(version);
-                //Arks_SystemTool.Properties.Settings.Default.current_patch_version = String.Empty;
-                //Arks_SystemTool.Properties.Settings.Default.Save();
-                //Arks_SystemTool.Properties.Settings.Default.Reload();
             }
             else
             {
@@ -156,7 +155,14 @@ namespace Arks_SystemTool
         {
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(source);
-            DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
+            List<Patchlist> patchlist = new List<Patchlist>();
+
+            //patchlist += man.GetPatchlist();
+            patchlist.AddRange(man.GetPatchlist());
+            patchlist.AddRange(man.GetLauncherlist());
+
+            DownloadkWindow window = new DownloadkWindow(patchlist);
+            //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
             //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
             
             window.Owner = this;
@@ -173,6 +179,7 @@ namespace Arks_SystemTool
             {
                 MessageBox.Show("Download canceled, you will rerun", "Canceled");
             }
+            patchlist.Clear();
         }
         private void _button_tools_Click(object sender, RoutedEventArgs e)
         {

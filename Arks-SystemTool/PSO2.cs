@@ -120,13 +120,16 @@ namespace Arks_SystemTool
 
                     if (mb_result == MessageBoxResult.Yes)
                     {
-                        if (!Directory.Exists(Directory.GetParent(pso2).FullName))
-                        {
-                            Directory.CreateDirectory(Directory.GetParent(pso2).FullName);
-                            Directory.CreateDirectory(Directory.GetParent(pso2).FullName + @"\data\");
-                            Directory.CreateDirectory(Directory.GetParent(pso2).FullName + @"\data\win32\");
-                        }
+                        Management man = new Management();
+
                         this.gamepath = Directory.GetParent(pso2).FullName;
+                        if (!Directory.Exists(this.gamepath))
+                        {
+                            //Directory.CreateDirectory(this.gamepath);
+                            //Directory.CreateDirectory(this.gamepath + @"\data\");
+                            Directory.CreateDirectory(this.gamepath + @"\data\win32\");
+                        }
+                        Requests.Download(man.GetPatchBaseURL() + "/pso2.exe", this.gamepath + @"\pso2.exe");
                     }
                     else if (mb_result == MessageBoxResult.No)
                     {

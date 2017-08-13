@@ -23,6 +23,8 @@ namespace Arks_SystemTool
 
         static public void Download(String url, String path)
         {
+            if (!Directory.Exists(Directory.GetParent(path).FullName))
+                Directory.CreateDirectory(Directory.GetParent(path).FullName);
             using (WebClient web = new WebClient())
             {
                 web.Headers.Add("User-Agent: AQUA_HTTP");

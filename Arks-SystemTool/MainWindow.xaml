@@ -9,7 +9,7 @@
         Height="350" Width="525" ResizeMode="NoResize"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         Icon="Resources/short_blue_512.png"
-        Loaded="_Window_Loaded" WindowStartupLocation="CenterScreen">
+        Loaded="_Window_Loaded" WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

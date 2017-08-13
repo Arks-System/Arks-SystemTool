@@ -10,7 +10,6 @@ namespace Arks_SystemTool
     {
         static public String management_beta = "http://patch01.pso2gs.net/patch_prod/patches/management_beta.txt";
         private Dictionary<String, String> _base;
-        private List<Patchlist> _patchlist;
         private List<String> _sources;
         public List<String> Sources { get { return (this._sources); } }
         public Dictionary<String, String> Bases { get { return (this._base); } }
@@ -20,7 +19,6 @@ namespace Arks_SystemTool
             String management = String.Empty;
             management = Requests.Get(management_beta);
             this._base = new Dictionary<String, String>();
-            this._patchlist = null;
 
             this._sources = new List<String>();
             this._sources.Add("http://patch01.pso2gs.net/");
@@ -53,41 +51,34 @@ namespace Arks_SystemTool
         {
             List<String> lists = new List<string>();
             List<Patchlist> patchlist = new List<Patchlist>();
-            /*
-            lists.Add(this._base["PatchURL"]);
-
-            foreach (var entry in lists)
-            {
-                String url = String.Format("{0}patchlist.txt", entry);
-                foreach (String e in Requests.Get(url).Trim('\r').Split('\n'))
-                {
-                    if (e.Length > 0)
-                        patchlist.Add(new Patchlist(e, this));
-                }
-            }
-            */
             if (String.IsNullOrEmpty(sourceBase))
                 sourceBase = this._base["PatchURL"];
 
-            String url = String.Format("{0}patchlist.txt", sourceBase);
+            String url = sourceBase + "/patchlist.txt";
             foreach (String e in Requests.Get(url).Trim('\r').Split('\n'))
             {
                 if (e.Length > 0)
+                {
                     patchlist.Add(new Patchlist(e, this));
+                }
             }
             return (patchlist);
         }
 
-        private void _BuildPatchlist(String uri)
+        public List<Patchlist> GetLauncherlist()
         {
-            String r = Requests.Get(String.Format("{0}patchlist.txt", uri));
-            this._patchlist = new List<Patchlist>();
+            String r = Requests.Get(this._base["PatchURL"] + "/launcherlist.txt");
+            List<Patchlist> patchlist = new List<Patchlist>();
 
             foreach (var e in r.Split('\n'))
             {
                 if (e.Length > 0)
-                    this._patchlist.Add(new Patchlist(e.Replace("\r", ""), this));
+                {
+                    patchlist.Add(new Patchlist(e.Replace("\r", ""), this));
+                }
             }
+
+            return (patchlist);
         }
 
         public String GetMasterBaseURL()
