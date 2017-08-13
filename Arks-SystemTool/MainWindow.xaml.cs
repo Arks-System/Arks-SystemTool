@@ -60,7 +60,6 @@ namespace Arks_SystemTool
         {
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(this._management.Sources[1]);
-            //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
             DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
 
             if (!force || Arks_SystemTool.Properties.Settings.Default.current_patch_version == this._pso2.GetLocalVersion())
@@ -69,7 +68,7 @@ namespace Arks_SystemTool
             window.Owner = this;
             if ((bool)window.ShowDialog())
             {
-                String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.pat");
+                String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.ver.pat");
                 this._pso2.ForceTranslationVersion(version);
             }
             else
@@ -176,6 +175,11 @@ namespace Arks_SystemTool
                 MessageBox.Show("Download canceled, you will rerun", "Canceled");
             }
             patchlist.Clear();
+        }
+
+        private void _button_translate_Click(object sender, RoutedEventArgs e)
+        {
+            this._CheckTranslation(true);
         }
         private void _button_tools_Click(object sender, RoutedEventArgs e)
         {

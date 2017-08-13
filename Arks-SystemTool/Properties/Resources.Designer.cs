@@ -124,6 +124,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Translate.
+        /// </summary>
+        public static string button_translate {
+            get {
+                return ResourceManager.GetString("button_translate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Keep JP enemy names.
         /// </summary>
         public static string check_keep_enemy_jpnames {

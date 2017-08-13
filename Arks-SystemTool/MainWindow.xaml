@@ -39,6 +39,9 @@
             <Button x:Name="button_filecheck"
                     Content="{x:Static local:Resources.button_filecheck}" 
                     Click="_button_filecheck_Click"/>
+            <Button x:Name="button_translate"
+                    Content="{x:Static local:Resources.button_translate}" 
+                    Click="_button_translate_Click"/>
             <Button x:Name="button_tools"
                     Content="{x:Static local:Resources.button_tools}"
                     Click="_button_tools_Click"/>

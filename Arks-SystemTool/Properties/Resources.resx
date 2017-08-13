@@ -138,6 +138,9 @@
   <data name="button_tools" xml:space="preserve">
     <value>Tools</value>
   </data>
+  <data name="button_translate" xml:space="preserve">
+    <value>Translate</value>
+  </data>
   <data name="check_keep_enemy_jpnames" xml:space="preserve">
     <value>Keep JP enemy names</value>
   </data>
