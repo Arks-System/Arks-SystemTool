@@ -7,14 +7,30 @@
         mc:Ignorable="d"
         Title="Arks-System Tool"
         Height="300" Width="500"
-        Loaded="_Window_Loaded"
         ResizeMode="NoResize"
         Icon="Resources/icon.ico"
-        WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label Content="LOADING"
+        WindowStartupLocation="CenterScreen"
+        ContentRendered="_Window_Rendered" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/long_vector_splash_ast.png" Stretch="None">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+    </Window.Background>
+    <Grid>
+        <!--Label Content="LOADING"
                VerticalAlignment="Center"
-               HorizontalContentAlignment="Center"/>
+               HorizontalContentAlignment="Center"/-->
+        <ProgressBar HorizontalAlignment="Center"
+                     VerticalAlignment="Bottom" 
+                     Height="10" Width="400"
+                     Margin="0,0,0,25" IsIndeterminate="True" VerticalContentAlignment="Bottom" />
 
     </Grid>
 </Window>

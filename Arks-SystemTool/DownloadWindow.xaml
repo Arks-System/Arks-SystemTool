@@ -14,7 +14,7 @@
         Loaded="_Window_Loaded" Closing="_Window_Closing"
         SizeToContent="Height">
     <Grid>
-        <Label x:Name="_count_label" Content="1 of many (0.00%)"
+        <Label x:Name="_count_label" Content="0 / ? (0.00%)"
                HorizontalAlignment="Center"
                Margin="0,20"
                VerticalAlignment="Top"/>
@@ -26,7 +26,8 @@
             Height="10"
             Margin="10,0,10,0"
             VerticalAlignment="Center"
-            Width="Auto" ValueChanged="_progress_Change"/>
+            Width="Auto" ValueChanged="_progress_Change"
+            IsIndeterminate="True" />
         <Button
             Content="{x:Static local:Resources.button_cancel}" HorizontalAlignment="Center"
             Margin="0,126,0,10"

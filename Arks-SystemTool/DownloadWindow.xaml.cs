@@ -55,6 +55,7 @@ namespace Arks_SystemTool
         {
             this._start = DateTime.Now;
             this._timer = new Timer(_ElapsedTimer, null, 0, 100);
+            this._progress.Value = 0;
             this._progress.Maximum = this._patchlist.Count;
             double percent = (this._progress.Value / this._progress.Maximum) * 100f;
             this._count_label.Content = String.Format("{0} / {1} ({2}%)", this._progress.Value, this._progress.Maximum, percent.ToString("0.00"));
@@ -63,6 +64,7 @@ namespace Arks_SystemTool
             {
                 this._patchsets[i % this._max_threads].Add(this._patchlist[i]);
             }
+            this._progress.IsIndeterminate = false;
             for (int i = 0; i < this._max_threads; ++i)
             {
                 this._bworkers[i] = new BackgroundWorker();

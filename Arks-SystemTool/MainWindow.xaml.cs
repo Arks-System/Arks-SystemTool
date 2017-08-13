@@ -28,10 +28,6 @@ namespace Arks_SystemTool
 
         public MainWindow(PSO2 pso2)
         {
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-CA");
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-BE");
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
             InitializeComponent();
             this._timer = null;
             this._pso2 = pso2;
@@ -60,14 +56,14 @@ namespace Arks_SystemTool
             t.Start();
         }
 
-        private void _CheckTranslation()
+        private void _CheckTranslation(bool force = false)
         {
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(this._management.Sources[1]);
             //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
             DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
 
-            if (Arks_SystemTool.Properties.Settings.Default.current_patch_version == this._pso2.GetLocalVersion())
+            if (!force || Arks_SystemTool.Properties.Settings.Default.current_patch_version == this._pso2.GetLocalVersion())
                 return;
 
             window.Owner = this;
