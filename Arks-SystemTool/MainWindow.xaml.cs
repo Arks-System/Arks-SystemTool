@@ -47,6 +47,7 @@ namespace Arks_SystemTool
                         this._status_label.Content = Arks_SystemTool.Properties.Resources.str_game_out_of_date;
                     else
                         this._status_label.Content = Arks_SystemTool.Properties.Resources.str_game_up_to_date;
+                    //this.button_launch.IsEnabled = !this._pso2.IsRunning();
                 }));
             });
             t.Start();
@@ -56,7 +57,7 @@ namespace Arks_SystemTool
         {
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(this._management.Sources[1]);
-            DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_translation_update, man.GetPatchlist(man.Bases["TranslationURL"]));
+            DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_translation_download, man.GetPatchlist(man.Bases["TranslationURL"]));
 
             if (!force || Arks_SystemTool.Properties.Settings.Default.current_patch_version == this._pso2.GetLocalVersion())
                 return;

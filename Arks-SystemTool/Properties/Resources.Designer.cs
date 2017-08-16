@@ -188,6 +188,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select PSO2&apos;s installation folder..
+        /// </summary>
+        public static string str_browse_pso2_bin {
+            get {
+                return ResourceManager.GetString("str_browse_pso2_bin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Checking....
         /// </summary>
         public static string str_checking {
@@ -215,7 +224,27 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Something might not work.\r\nForce translation version anyway?.
+        ///   Looks up a localized string similar to One or more files might not have been downloaded correctly.
+        ///Please check the log for errors before closing this window..
+        /// </summary>
+        public static string str_download_error {
+            get {
+                return ResourceManager.GetString("str_download_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PSO2 needs to be installed to continue, rerun the tool if you wish to install PSO2 or when you are able to detect the game folder..
+        /// </summary>
+        public static string str_exit_no_pso2 {
+            get {
+                return ResourceManager.GetString("str_exit_no_pso2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something might not work.
+        ///Force translation version anyway?.
         /// </summary>
         public static string str_force_translation_version {
             get {
@@ -251,7 +280,8 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Something might not work.\r\nLaunch anyway?.
+        ///   Looks up a localized string similar to Something might not work.
+        ///Launch anyway?.
         /// </summary>
         public static string str_launch_anyway {
             get {
@@ -265,6 +295,15 @@ namespace Arks_SystemTool.Properties {
         public static string str_path {
             get {
                 return ResourceManager.GetString("str_path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to install the game in the selected path?.
+        /// </summary>
+        public static string str_prompt_create_pso2_bin {
+            get {
+                return ResourceManager.GetString("str_prompt_create_pso2_bin", resourceCulture);
             }
         }
         
@@ -287,7 +326,36 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It appears the translation version doesn&apos;t match the current game version.\r\nWould you like to update the translation?.
+        ///   Looks up a localized string similar to A proper game path could not be found or created.
+        ///Click OK to retry or cancel to exit..
+        /// </summary>
+        public static string str_pso2_bin_not_found {
+            get {
+                return ResourceManager.GetString("str_pso2_bin_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The app will close, please launch it again..
+        /// </summary>
+        public static string str_reset {
+            get {
+                return ResourceManager.GetString("str_reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select the &quot;pso2_bin&quot; folder. If the game is not currently installed it will install it..
+        /// </summary>
+        public static string str_select_create_pso2_bin {
+            get {
+                return ResourceManager.GetString("str_select_create_pso2_bin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It appears the translation version doesn&apos;t match the current game version.
+        ///Would you like to update the translation?.
         /// </summary>
         public static string str_translation_missmatch {
             get {
@@ -341,11 +409,38 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download failed.
+        /// </summary>
+        public static string title_download_error {
+            get {
+                return ResourceManager.GetString("title_download_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exiting.
+        /// </summary>
+        public static string title_exiting {
+            get {
+                return ResourceManager.GetString("title_exiting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filecheck.
         /// </summary>
         public static string title_filecheck {
             get {
                 return ResourceManager.GetString("title_filecheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log.
+        /// </summary>
+        public static string title_log {
+            get {
+                return ResourceManager.GetString("title_log", resourceCulture);
             }
         }
         
@@ -368,11 +463,38 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game folder not found.
+        /// </summary>
+        public static string title_pso2_bin_not_found {
+            get {
+                return ResourceManager.GetString("title_pso2_bin_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string title_reset {
+            get {
+                return ResourceManager.GetString("title_reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string title_settings {
             get {
                 return ResourceManager.GetString("title_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating translation.
+        /// </summary>
+        public static string title_translation_download {
+            get {
+                return ResourceManager.GetString("title_translation_download", resourceCulture);
             }
         }
         

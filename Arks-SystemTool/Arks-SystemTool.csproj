@@ -65,6 +65,9 @@
     <Compile Include="DownloadWindow.xaml.cs">
       <DependentUpon>DownloadWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LogWindow.xaml.cs">
+      <DependentUpon>LogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Management.cs" />
     <Compile Include="Patchlist.cs" />
     <Compile Include="Properties\Resources.fr.Designer.cs">
@@ -84,6 +87,10 @@
       <DependentUpon>ToolsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="DownloadWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

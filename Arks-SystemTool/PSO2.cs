@@ -22,12 +22,12 @@ namespace Arks_SystemTool
             "pso2download.exe",
             "pso2updater.exe" };
 
-        public PSO2(): this(Arks_SystemTool.Properties.Settings.Default.pso2_path)
+        public PSO2()//: this(Arks_SystemTool.Properties.Settings.Default.pso2_path)
         {
             if (String.IsNullOrEmpty(Arks_SystemTool.Properties.Settings.Default.pso2_path))
             {
-                this.gamepath = String.Format(@"{0}\pso2_bin\", this.DetectGamePath());
-                this.gamepath = this.gamepath.Replace(@"\\", @"\");
+                this.gamepath = this.DetectGamePath();
+                this.gamepath = this.gamepath.Replace(@"\\", @"\") + "\\";
                 Arks_SystemTool.Properties.Settings.Default.pso2_path = this.gamepath;
                 Arks_SystemTool.Properties.Settings.Default.Save();
                 Arks_SystemTool.Properties.Settings.Default.Reload();
@@ -37,7 +37,7 @@ namespace Arks_SystemTool
                 this.gamepath = Arks_SystemTool.Properties.Settings.Default.pso2_path;
             }
         }
-        public PSO2(String path)
+        /*public PSO2(String path)
         {
             this.gamepath = path;
 
@@ -47,7 +47,7 @@ namespace Arks_SystemTool
                 Arks_SystemTool.Properties.Settings.Default.Save();
                 Arks_SystemTool.Properties.Settings.Default.Reload();
             }
-        }
+        }*/
 
         public void Launch(bool force = false)
         {
@@ -93,13 +93,16 @@ namespace Arks_SystemTool
                     path = Microsoft.Win32.Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\http://pso2.jp/appid/release_is1", "InstallLocation", String.Empty) as String;
                 else
                     path = Microsoft.Win32.Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\http://pso2.jp/appid/release_is1", "InstallLocation", String.Empty) as String;
-                if (String.IsNullOrEmpty(path))
+                while (String.IsNullOrEmpty(path))
                 {
                     using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
                     {
-                        MessageBox.Show("Please select the folder where PSO2 is installed or where you want to install it");
+                        MessageBox.Show(Arks_SystemTool.Properties.Resources.str_select_create_pso2_bin,
+                            Arks_SystemTool.Properties.Resources.title_pso2_bin_not_found,
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Information);
                         dialog.ShowNewFolderButton = true;
-                        dialog.Description = "Select PSO2's path";
+                        dialog.Description = Arks_SystemTool.Properties.Resources.str_browse_pso2_bin;
                         System.Windows.Forms.DialogResult result = dialog.ShowDialog();
                         if (result == System.Windows.Forms.DialogResult.OK)
                         {
@@ -107,16 +110,28 @@ namespace Arks_SystemTool
                         }
                         else
                         {
-                            if (MessageBox.Show("A valid game folder is required, exit?", "Exit?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                            if (MessageBox.Show(Arks_SystemTool.Properties.Resources.str_pso2_bin_not_found,
+                                Arks_SystemTool.Properties.Resources.title_pso2_bin_not_found,
+                                MessageBoxButton.OKCancel,
+                                MessageBoxImage.Error) == MessageBoxResult.Cancel)
                                 Environment.Exit(-1);
                         }
                     }
                 }
 
-                pso2 = String.Format(@"{0}\pso2_bin\pso2.exe", path);
+                if (!path.EndsWith(@"\pso2_bin"))
+                {
+                    if (!Directory.Exists(path + @"\pso2_bin\"))
+                        Directory.CreateDirectory(path + @"\pso2_bin\");
+                    path = path + @"\pso2_bin";
+                }
+                pso2 = path + @"\pso2.exe";
+                
                 if (!String.IsNullOrEmpty(path) && !File.Exists(pso2))
                 {
-                    MessageBoxResult mb_result = MessageBox.Show("Create?", "No game detected", MessageBoxButton.YesNo);
+                    MessageBoxResult mb_result = MessageBox.Show(Arks_SystemTool.Properties.Resources.str_prompt_create_pso2_bin,
+                        Arks_SystemTool.Properties.Resources.title_pso2_bin_not_found,
+                        MessageBoxButton.YesNo);
 
                     if (mb_result == MessageBoxResult.Yes)
                     {
@@ -133,6 +148,11 @@ namespace Arks_SystemTool
                     }
                     else if (mb_result == MessageBoxResult.No)
                     {
+                        MessageBox.Show(Arks_SystemTool.Properties.Resources.str_exit_no_pso2,
+                            Arks_SystemTool.Properties.Resources.title_pso2_bin_not_found,
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
+                        Environment.Exit(0);
                         return (String.Empty);
                     }
                 }

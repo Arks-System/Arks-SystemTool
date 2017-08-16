@@ -166,7 +166,8 @@
     <value>Le téléchargement a été accompli avec succés.</value>
   </data>
   <data name="str_force_translation_version" xml:space="preserve">
-    <value>Voulez-vous forcer la version de la traduction ?\r\nLe bon fonctionnement du jeu n'est pas garanti.</value>
+    <value>Voulez-vous forcer la version de la traduction ?
+Le bon fonctionnement du jeu n'est pas garanti.</value>
   </data>
   <data name="str_game_out_of_date" xml:space="preserve">
     <value>Phantasy Star Online 2 n'est pas à jour, veuillez le mettre à jour.</value>
@@ -178,7 +179,8 @@
     <value>Phantasy Star Online 2 est à jour.</value>
   </data>
   <data name="str_launch_anyway" xml:space="preserve">
-    <value>Quelque chose pourrait ne pas fonctionner.\r\nVoulez-vous lancer le jeu quoi qu'il arrive ?</value>
+    <value>Quelque chose pourrait ne pas fonctionner.
+Voulez-vous lancer le jeu quoi qu'il arrive ?</value>
   </data>
   <data name="str_path" xml:space="preserve">
     <value>Chemin:</value>
@@ -187,10 +189,12 @@
     <value>Voulez vous mettre à jour ?</value>
   </data>
   <data name="str_pso2_already_running" xml:space="preserve">
-    <value>PSO2 semble déjà lancé.\r\nVeuillez quitter le jeu ou redémarrer votre ordinateur.</value>
+    <value>PSO2 semble déjà lancé.
+Veuillez quitter le jeu ou redémarrer votre ordinateur.</value>
   </data>
   <data name="str_translation_missmatch" xml:space="preserve">
-    <value>Il semblerait que la version de la traduction et du jeu ne correspondent pas.\r\nVoulez-vous mettre à jour la traduction ?</value>
+    <value>Il semblerait que la version de la traduction et du jeu ne correspondent pas.
+Voulez-vous mettre à jour la traduction ?</value>
   </data>
   <data name="str_update_source" xml:space="preserve">
     <value>Serveur source:</value>
@@ -224,5 +228,47 @@
   </data>
   <data name="title_update_required" xml:space="preserve">
     <value>Mise à jour requise</value>
+  </data>
+  <data name="str_browse_pso2_bin" xml:space="preserve">
+    <value>Selectionner le dossier d'installation de PSO2.</value>
+  </data>
+  <data name="str_download_error" xml:space="preserve">
+    <value>Un ou plusieurs fichiers n'ont pas pu être téléchargé correctement.
+Veuillez consulter le log pour plus d'informations avant de fermer cette fenêtre.</value>
+  </data>
+  <data name="str_exit_no_pso2" xml:space="preserve">
+    <value>Une installation de PSO2 doit être présenté ou créé pour continuer.
+Relancez l'outils lorsque vous souhaitez installer le jeu ou vous pouvez détecter une installation du jeu valid.</value>
+  </data>
+  <data name="str_prompt_create_pso2_bin" xml:space="preserve">
+    <value>Voulez-vous installer PSO2 dans le chemin sélectionné ?</value>
+  </data>
+  <data name="str_pso2_bin_not_found" xml:space="preserve">
+    <value>Un chemin conforme vers le dossier n'a pas pu être trouvé ou créé.
+Cliquez sur OK pour réessayer ou annuler pour quitter.</value>
+  </data>
+  <data name="str_reset" xml:space="preserve">
+    <value>L'application va se fermer, veuillez la relancer.</value>
+  </data>
+  <data name="str_select_create_pso2_bin" xml:space="preserve">
+    <value>Veuillez sélectionner le dossier "pso2_bin" du jeu. Le jeu sera installé si il n'existe pas.</value>
+  </data>
+  <data name="title_download_error" xml:space="preserve">
+    <value>Le téléchargement a échoué</value>
+  </data>
+  <data name="title_exiting" xml:space="preserve">
+    <value>Fermeture</value>
+  </data>
+  <data name="title_log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="title_pso2_bin_not_found" xml:space="preserve">
+    <value>Dossier du jeu non trouvé</value>
+  </data>
+  <data name="title_reset" xml:space="preserve">
+    <value>Paramètres par défaut</value>
+  </data>
+  <data name="title_translation_download" xml:space="preserve">
+    <value>Mise à jour de la traduction</value>
   </data>
 </root>

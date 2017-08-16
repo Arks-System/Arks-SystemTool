@@ -45,8 +45,10 @@ namespace Arks_SystemTool
         private void _button_reset_Click(object sender, RoutedEventArgs e)
         {
             Arks_SystemTool.Properties.Settings.Default.Reset();
+            Arks_SystemTool.Properties.Settings.Default.Save();
             Arks_SystemTool.Properties.Settings.Default.Reload();
-            this._Window_Loaded(sender, e);
+            Environment.Exit(0);
+            //this._Window_Loaded(sender, e);
         }
 
         private void _checked_translate(object sender, RoutedEventArgs e)

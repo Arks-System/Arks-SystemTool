@@ -53,6 +53,12 @@ namespace Arks_SystemTool
             return (false);
         }
 
+        /*private async Task<bool> _DetectGame()
+        {
+            PSO2 pso2 = new PSO2();
+            return (false);
+        }*/
+
         private void _SpawnMainWindow()
         {
             PSO2 pso2 = new PSO2();

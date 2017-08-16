@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.ComponentModel;
 using System.IO;
+using System.Net;
 
 namespace Arks_SystemTool
 {
@@ -28,19 +29,27 @@ namespace Arks_SystemTool
         private BackgroundWorker[] _bworkers;
         private Timer _timer;
         private DateTime _start;
+        private LogWindow _log;
+        private int _errors;
+        private int _downloaded;
 
         public DownloadkWindow(String title, List<Patchlist> patchlist = null)
         {
+            InitializeComponent();
             this.Title = title;
+            //this._max_threads = 4;
+            this._max_threads = Environment.ProcessorCount;
             this._patchlist = patchlist;
-            this._max_threads = 4;
             this._patchsets = new List<List<Patchlist>>(this._max_threads);
             for (int i = 0; i < this._max_threads; ++i)
             {
                 this._patchsets.Add(new List<Patchlist>());
             }
             this._bworkers = new BackgroundWorker[this._max_threads];
-            InitializeComponent();
+            this._log = new LogWindow();
+            this._downloaded = 0;
+            this._errors = 0;
+            this._errors_label.Content = "";
         }
 
         private void _ElapsedTimer(object state)
@@ -79,9 +88,14 @@ namespace Arks_SystemTool
 
         private void DownloadkWindow_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            this._progress.Value += 1;
             this._progress.Value += e.ProgressPercentage;
+            this._downloaded += e.ProgressPercentage;
             double percent = (this._progress.Value / this._progress.Maximum) * 100f;
-            this._count_label.Content = String.Format("{0} / {1} ({2}%)", this._progress.Value, this._progress.Maximum, percent.ToString("0.00"));
+            if (this._downloaded > 0)
+                this._count_label.Content = String.Format("{0} (+{1}) / {2} ({3}%)", this._progress.Value, this._downloaded, this._progress.Maximum, percent.ToString("0.00"));
+            else
+                this._count_label.Content = String.Format("{0} / {1} ({2}%)", this._progress.Value, this._progress.Maximum, percent.ToString("0.00"));
         }
 
         private void DownloadkWindow_DoWork(object sender, DoWorkEventArgs e)
@@ -94,6 +108,7 @@ namespace Arks_SystemTool
 #endif
             foreach (var elem in patchlist)
             {
+                bool downloaded = false;
                 String path = String.Format(@"{0}\{1}", Arks_SystemTool.Properties.Settings.Default.pso2_path, elem.path.Replace("/", @"\"));
 
 #if DEBUG
@@ -112,7 +127,33 @@ namespace Arks_SystemTool
                     Console.WriteLine(elem.url);
                     Console.WriteLine("Missmatch!");
 #endif
-                    Requests.Download(elem.url, path);
+                    try
+                    {
+                        Requests.Download(elem.url, path);
+                        downloaded = true;
+                    }
+                    catch (WebException we)
+                    {
+                        Application.Current.Dispatcher.Invoke(new Action(() =>
+                        {
+                            String err = DateTime.Now + ": " + we.Message + "\r\n";
+
+                            err += "On: " + we.Response.ResponseUri + "\r\n";
+                            err += "For: " + path.Replace(@"\\", @"\") + "\r\n";
+                            err += we.StackTrace;
+                            this._errors += 1;
+
+                            if (!Application.Current.Windows.OfType<LogWindow>().Any())
+                                this._log = new LogWindow();
+                            if (!this._log.IsVisible)
+                            {
+                                this._log.Show();
+                                this._log.Focus();
+                            }
+                            this._errors_label.Content = this._errors;
+                            this._log.AppendLine(err, this._errors);
+                        }));
+                    }
                 }
 #if DEBUG
                 else
@@ -120,7 +161,7 @@ namespace Arks_SystemTool
                     Console.WriteLine("We have a match!"); 
                 }
 #endif
-                worker.ReportProgress(1);
+                worker.ReportProgress(downloaded ? 1 : 0);
                 //Thread.Sleep(700);
             }
         }
@@ -134,6 +175,11 @@ namespace Arks_SystemTool
 
         private void _Window_Closing(object sender, CancelEventArgs e)
         {
+            if (this._errors > 0)
+                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_download_error,
+                    Arks_SystemTool.Properties.Resources.title_download_error,
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             foreach (var worker in this._bworkers)
             {
                 if (worker.IsBusy)
@@ -141,6 +187,8 @@ namespace Arks_SystemTool
                 worker.Dispose();
             }
             this._timer.Dispose();
+            //if (this._log.IsVisible || Application.Current.Windows.OfType<LogWindow>().Any())
+            this._log.Close();
         }
 
         private void _progress_Change(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -150,7 +198,9 @@ namespace Arks_SystemTool
                 this._progress.Value += 1;
                 this.IsEnabled = false;
                 MessageBox.Show(Arks_SystemTool.Properties.Resources.str_download_completed,
-                    Arks_SystemTool.Properties.Resources.title_download_completed);
+                    Arks_SystemTool.Properties.Resources.title_download_completed,
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
                 this.IsEnabled = true;
                 this.DialogResult = true;
                 this.Close();
