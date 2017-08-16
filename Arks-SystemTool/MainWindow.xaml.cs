@@ -191,7 +191,7 @@ namespace Arks_SystemTool
         }
         private void _button_tools_Click(object sender, RoutedEventArgs e)
         {
-            ToolsWindow window = new ToolsWindow();
+            ToolsWindow window = new ToolsWindow(this._pso2);
 
             window.Owner = this;
             window.ShowDialog();

@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Windows;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace Arks_SystemTool
 {
@@ -199,6 +201,27 @@ namespace Arks_SystemTool
             foreach (Process proc in Process.GetProcessesByName("pso2.exe"))
             {
                 proc.Kill();
+            }
+        }
+
+        public void SetPermissions(FileSystemRights rights = FileSystemRights.FullControl)
+        {
+            foreach (String e in this.binaries)
+            {
+                String path = Arks_SystemTool.Properties.Settings.Default.pso2_path + @"\" + e;
+                FileInfo finfo = new FileInfo(path);
+                FileSecurity fsecurity = finfo.GetAccessControl();
+                fsecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null),
+                    rights,
+                    InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
+                    PropagationFlags.NoPropagateInherit,
+                    AccessControlType.Allow));
+                fsecurity.AddAccessRule(new FileSystemAccessRule(Environment.UserName,
+                    rights,
+                    InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
+                    PropagationFlags.NoPropagateInherit,
+                    AccessControlType.Allow));
+                finfo.SetAccessControl(fsecurity);
             }
         }
     }

@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:Arks_SystemTool.Properties"
              xmlns:Controls="clr-namespace:Arks_SystemTool"
              mc:Ignorable="d" 
-             d:DesignHeight="300"
-             d:DesignWidth="300"
+             d:DesignHeight="323"
+             d:DesignWidth="384"
              Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
     <Grid>
         <Grid.ColumnDefinitions>

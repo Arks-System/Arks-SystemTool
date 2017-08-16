@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Arks_SystemTool.LinkButtonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Arks_SystemTool"
+             mc:Ignorable="d" 
+             d:DesignHeight="51" d:DesignWidth="143" Loaded="_Loaded">
+    <Grid Margin="5,0,5,5">
+        <Button x:Name="_button"
+                Click="_Click"
+                Content="Link Button"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Stretch" Padding="2"
+                />
+    </Grid>
+</UserControl>

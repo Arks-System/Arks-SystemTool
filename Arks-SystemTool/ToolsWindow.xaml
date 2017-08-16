@@ -10,9 +10,34 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
         Icon="Resources/icon.ico"
+        SizeToContent="Height"
         ShowInTaskbar="False">
     <Grid>
-        <Button x:Name="button_ok" Content="Button" Click="button_ok_Click"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--Button x:Name="button_ok" Content="Button" Click="button_ok_Click"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/-->
+        <StackPanel Grid.Row="0">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="5, 5, 5, 5"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button
+                Content="Fix Permissions"
+                Click="button_fix_perm_Click"/>
+        </StackPanel>
 
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="5, 5, 5, 5"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button
+                Content="OK"
+                Click="button_ok_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

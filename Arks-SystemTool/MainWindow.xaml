@@ -48,7 +48,7 @@
                     Click="_button_translate_Click"/>
             <Button x:Name="button_tools"
                     Content="{x:Static local:Resources.button_tools}"
-                    Click="_button_tools_Click" IsEnabled="False"/>
+                    Click="_button_tools_Click"/>
             <Button x:Name="button_settings"
                     Content="{x:Static local:Resources.button_settings}"
                     Click="_button_settings_Click"/>
