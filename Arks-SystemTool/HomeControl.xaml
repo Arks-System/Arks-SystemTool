@@ -33,14 +33,28 @@
         </StackPanel>
         <StackPanel Grid.Column="1">
             <!--Label Content="{x:Static local:Resources.label_resources}"/-->
-            <Label Content="Bumped"/>
-            <Label Content="Skill Tree Simulator"/>
-            <Label Content="Affixe Simulator"/>
-            <Label Content="Damage Calculator"/>
-            <Label Content="Swiki"/>
+
             <Controls:LinkButtonControl
-                Label="Hello World!"
-                Link="http://senpaisilver.com"/>
+                Label="PSO2.jp"
+                Link="http://pso2.jp/"/>
+            <Controls:LinkButtonControl
+                Label="Bumped"
+                Link="http://bumped.org/psublog/"/>
+            <Controls:LinkButtonControl
+                Label="Arks-Visiophone"
+                Link="https://pso2.arks-visiphone.com/wiki/Main_Page"/>
+            <Controls:LinkButtonControl
+                Label="Skill Tree Simulator"
+                Link="http://arks-layer.com/skillsim/skillcalc.php"/>
+            <Controls:LinkButtonControl
+                Label="Affix Simulator"
+                Link="http://pso2affix.seilent.net/"/>
+            <Controls:LinkButtonControl
+                Label="Damage Calculator"
+                Link="http://4rt.info/psod/"/>
+            <Controls:LinkButtonControl
+                Label="Swiki"
+                Link="http://pso2.swiki.jp/index.php"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -25,7 +25,7 @@
                         Source="https://tool.arks-system.eu/tool.php"
                         ScrollViewer.VerticalScrollBarVisibility="Auto"
                         /-->
-            <Controls:HomeControl Margin="5,5,0,5"/>
+            <Controls:HomeControl Margin="5,10,0,5"/>
         </DockPanel>
         <StackPanel Grid.Column="1" Grid.Row="0">
             <StackPanel.Resources>
