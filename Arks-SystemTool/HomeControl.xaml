@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Arks_SystemTool.HomeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Arks_SystemTool.Properties"
+             xmlns:Controls="clr-namespace:Arks_SystemTool"
+             mc:Ignorable="d" 
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Controls:LinkButtonControl
+                Label="Arks-System"
+                Link="https://arks-system.eu/"/>
+            <Controls:LinkButtonControl
+                Label="Blog"
+                Link="https://blog.arks-system.eu/"/>
+            <Controls:LinkButtonControl
+                Label="Steam Community"
+                Link="https://steamcommunity.com/groups/Arks-System"/>
+            <Controls:LinkButtonControl
+                Label="Twitter"
+                Link="https://twitter.com/ArksSystem"/>
+            <Controls:LinkButtonControl
+                Label="YouTube"
+                Link="http://www.youtube.com/c/ArkssystemEu"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <!--Label Content="{x:Static local:Resources.label_resources}"/-->
+            <Label Content="Bumped"/>
+            <Label Content="Skill Tree Simulator"/>
+            <Label Content="Affixe Simulator"/>
+            <Label Content="Damage Calculator"/>
+            <Label Content="Swiki"/>
+            <Controls:LinkButtonControl
+                Label="Hello World!"
+                Link="http://senpaisilver.com"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

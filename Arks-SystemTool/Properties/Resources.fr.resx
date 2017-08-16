@@ -229,6 +229,12 @@ Voulez-vous mettre à jour la traduction ?</value>
   <data name="title_update_required" xml:space="preserve">
     <value>Mise à jour requise</value>
   </data>
+  <data name="label_resources" xml:space="preserve">
+    <value>Ressources</value>
+  </data>
+  <data name="label_site" xml:space="preserve">
+    <value>Website</value>
+  </data>
   <data name="str_browse_pso2_bin" xml:space="preserve">
     <value>Selectionner le dossier d'installation de PSO2.</value>
   </data>

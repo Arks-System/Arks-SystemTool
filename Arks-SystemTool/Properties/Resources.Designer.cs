@@ -178,6 +178,24 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        public static string label_resources {
+            get {
+                return ResourceManager.GetString("label_resources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string label_site {
+            get {
+                return ResourceManager.GetString("label_site", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap short_blue_512 {

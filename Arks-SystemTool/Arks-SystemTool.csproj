@@ -65,6 +65,12 @@
     <Compile Include="DownloadWindow.xaml.cs">
       <DependentUpon>DownloadWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HomeControl.xaml.cs">
+      <DependentUpon>HomeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LinkButtonControl.xaml.cs">
+      <DependentUpon>LinkButtonControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LogWindow.xaml.cs">
       <DependentUpon>LogWindow.xaml</DependentUpon>
     </Compile>
@@ -87,6 +93,14 @@
       <DependentUpon>ToolsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="DownloadWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LinkButtonControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
