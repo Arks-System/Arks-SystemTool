@@ -248,6 +248,9 @@ Please check the log for errors before closing this window.</value>
   <data name="str_exit_no_pso2" xml:space="preserve">
     <value>PSO2 needs to be installed to continue, rerun the tool if you wish to install PSO2 or when you are able to detect the game folder.</value>
   </data>
+  <data name="str_no_updater_found" xml:space="preserve">
+    <value>No updater found, please reinstall totally Arks-System Tool.</value>
+  </data>
   <data name="str_prompt_create_pso2_bin" xml:space="preserve">
     <value>Would you like to install the game in the selected path?</value>
   </data>
@@ -261,6 +264,9 @@ Click OK to retry or cancel to exit.</value>
   <data name="str_select_create_pso2_bin" xml:space="preserve">
     <value>Please select the "pso2_bin" folder. If the game is not currently installed it will install it.</value>
   </data>
+  <data name="str_tool_update_available" xml:space="preserve">
+    <value>An update is available for this tool. The updater will update it right now.</value>
+  </data>
   <data name="title_download_error" xml:space="preserve">
     <value>Download failed</value>
   </data>
@@ -270,11 +276,17 @@ Click OK to retry or cancel to exit.</value>
   <data name="title_log" xml:space="preserve">
     <value>Log</value>
   </data>
+  <data name="title_no_updater_found" xml:space="preserve">
+    <value>No updater found</value>
+  </data>
   <data name="title_pso2_bin_not_found" xml:space="preserve">
     <value>Game folder not found</value>
   </data>
   <data name="title_reset" xml:space="preserve">
     <value>Reset</value>
+  </data>
+  <data name="title_tool_update_available" xml:space="preserve">
+    <value>Arks-System Tool update available</value>
   </data>
   <data name="title_translation_download" xml:space="preserve">
     <value>Updating translation</value>

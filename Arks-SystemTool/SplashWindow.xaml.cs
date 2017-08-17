@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.Reflection;
 using System.IO;
+using System.Net;
+using System.Diagnostics;
 
 namespace Arks_SystemTool
 {
@@ -47,17 +49,15 @@ namespace Arks_SystemTool
             
             if (this._UpdateAvailable())
             {
+                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_tool_update_available,
+                    Arks_SystemTool.Properties.Resources.title_tool_update_available,
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
                 this._UpdateArksSystemTool();
                 return (true);
             }
             return (false);
         }
-
-        /*private async Task<bool> _DetectGame()
-        {
-            PSO2 pso2 = new PSO2();
-            return (false);
-        }*/
 
         private void _SpawnMainWindow()
         {
@@ -73,12 +73,64 @@ namespace Arks_SystemTool
         {
             String fullpath = Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path);
             String path = Directory.GetParent(fullpath).FullName;
+
+            try
+            {
+                String[] r = Requests.Get("http://tool.arks-system.eu/repository/versions.txt").Split('\n');
+
+                foreach (String e in r)
+                {
+                    String[] toollist = e.Split('=');
+                    if (toollist[0] == "ProductVersion")
+                    {
+                        Version remote = new Version(toollist[1]);
+                        //Version local = Assembly.GetExecutingAssembly().GetName().Version;
+                        Version local = this._GetProductVersion();
+
+                        return (remote > local);
+                    }
+                }
+            }
+            catch (WebException we)
+            {
+                MessageBox.Show(we.Message);
+            }
             return (false);
+        }
+
+        private Version _GetProductVersion()
+        {
+            return (new Version(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion));
         }
 
         private void _UpdateArksSystemTool()
         {
-        }
+            String fullpath = Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path);
+            String folderpath = Directory.GetParent(fullpath).FullName;
+            String updater = folderpath + @"\Arks-SystemToolUpdater.exe";
 
+            try
+            {
+                Requests.Download("http://tool.arks-system.eu/repository/Arks-SystemToolUpdater.exe", updater);
+                Process.Start(updater);
+            }
+            catch (WebException we)
+            {
+                Console.WriteLine(we.Message);
+            }
+            /*
+            if (File.Exists(updater))
+            {
+                Process p = Process.Start(updater);
+            }
+            else
+            {
+                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_no_updater_found,
+                    Arks_SystemTool.Properties.Resources.title_no_updater_found,
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            */
+        }
     }
 }

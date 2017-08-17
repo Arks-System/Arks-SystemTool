@@ -176,4 +176,13 @@
     <Resource Include="Resources\long_vector_splash_ast.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)bin\$(TargetFileName)" /Y
+copy "$(TargetDir)fr\*" "$(SolutionDir)bin\fr\" /Y
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
+if not exist "$(SolutionDir)bin\fr" mkdir "$(SolutionDir)bin\fr"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -48,6 +48,8 @@
     <Compile Include="Arks_SystemTool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests.cs" />
+    <Compile Include="Toollist.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -56,4 +58,10 @@
     <Content Include="favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)bin\$(TargetFileName)" /Y</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

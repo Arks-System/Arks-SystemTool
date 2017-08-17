@@ -308,6 +308,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No updater found, please reinstall totally Arks-System Tool..
+        /// </summary>
+        public static string str_no_updater_found {
+            get {
+                return ResourceManager.GetString("str_no_updater_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Path:.
         /// </summary>
         public static string str_path {
@@ -368,6 +377,15 @@ namespace Arks_SystemTool.Properties {
         public static string str_select_create_pso2_bin {
             get {
                 return ResourceManager.GetString("str_select_create_pso2_bin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An update is available for this tool. The updater will update it right now..
+        /// </summary>
+        public static string str_tool_update_available {
+            get {
+                return ResourceManager.GetString("str_tool_update_available", resourceCulture);
             }
         }
         
@@ -472,6 +490,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No updater found.
+        /// </summary>
+        public static string title_no_updater_found {
+            get {
+                return ResourceManager.GetString("title_no_updater_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phantasy Star Online 2 is already running.
         /// </summary>
         public static string title_pso2_already_running {
@@ -504,6 +531,15 @@ namespace Arks_SystemTool.Properties {
         public static string title_settings {
             get {
                 return ResourceManager.GetString("title_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arks-System Tool update available.
+        /// </summary>
+        public static string title_tool_update_available {
+            get {
+                return ResourceManager.GetString("title_tool_update_available", resourceCulture);
             }
         }
         

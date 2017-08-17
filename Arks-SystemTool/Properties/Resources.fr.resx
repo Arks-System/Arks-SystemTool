@@ -246,6 +246,9 @@ Veuillez consulter le log pour plus d'informations avant de fermer cette fenêtr
     <value>Une installation de PSO2 doit être présenté ou créé pour continuer.
 Relancez l'outils lorsque vous souhaitez installer le jeu ou vous pouvez détecter une installation du jeu valid.</value>
   </data>
+  <data name="str_no_updater_found" xml:space="preserve">
+    <value>Le logiciel de mise à jour n'a pas pu être trouvé, veuillez réinstaller l'Arks-System Tool.</value>
+  </data>
   <data name="str_prompt_create_pso2_bin" xml:space="preserve">
     <value>Voulez-vous installer PSO2 dans le chemin sélectionné ?</value>
   </data>
@@ -259,6 +262,9 @@ Cliquez sur OK pour réessayer ou annuler pour quitter.</value>
   <data name="str_select_create_pso2_bin" xml:space="preserve">
     <value>Veuillez sélectionner le dossier "pso2_bin" du jeu. Le jeu sera installé si il n'existe pas.</value>
   </data>
+  <data name="str_tool_update_available" xml:space="preserve">
+    <value>Une mise à jour pour cet outil est disponible. Le logiciel va se mettre à jour.</value>
+  </data>
   <data name="title_download_error" xml:space="preserve">
     <value>Le téléchargement a échoué</value>
   </data>
@@ -268,11 +274,17 @@ Cliquez sur OK pour réessayer ou annuler pour quitter.</value>
   <data name="title_log" xml:space="preserve">
     <value>Log</value>
   </data>
+  <data name="title_no_updater_found" xml:space="preserve">
+    <value>Mise à jour impossible</value>
+  </data>
   <data name="title_pso2_bin_not_found" xml:space="preserve">
     <value>Dossier du jeu non trouvé</value>
   </data>
   <data name="title_reset" xml:space="preserve">
     <value>Paramètres par défaut</value>
+  </data>
+  <data name="title_tool_update_available" xml:space="preserve">
+    <value>Mise à jour disponible</value>
   </data>
   <data name="title_translation_download" xml:space="preserve">
     <value>Mise à jour de la traduction</value>
