@@ -27,7 +27,7 @@ namespace Arks_SystemToolUpdater
             while (arks.IsRunning())
             {
                 Console.WriteLine("Waiting for Arks-SystemTool.exe to close...");
-                Thread.Sleep(500);
+                Thread.Sleep(1500);
             }
 
             Console.WriteLine("Checking Updates...");
@@ -42,7 +42,7 @@ namespace Arks_SystemToolUpdater
             while (!arks.IsRunning())
             {
                 Console.WriteLine("Waiting for Arks-System Tool to run...");
-                Thread.Sleep(400);
+                Thread.Sleep(1500);
             }
 #if DEBUG
             TimeSpan ts = DateTime.Now - Process.GetCurrentProcess().StartTime;

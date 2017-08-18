@@ -46,7 +46,7 @@ namespace Arks_SystemTool
         private async Task<bool> _CheckUpdate()
         {
             await Task.Delay(700);
-            
+#if DEBUG
             if (this._UpdateAvailable())
             {
                 MessageBox.Show(Arks_SystemTool.Properties.Resources.str_tool_update_available,
@@ -56,6 +56,7 @@ namespace Arks_SystemTool
                 this._UpdateArksSystemTool();
                 return (true);
             }
+#endif
             return (false);
         }
 
@@ -64,7 +65,7 @@ namespace Arks_SystemTool
             PSO2 pso2 = new PSO2();
             MainWindow window = new MainWindow(pso2);
 
-            window.Owner = this;
+            //window.Owner = this;
             this.Hide();
             window.ShowDialog();
         }

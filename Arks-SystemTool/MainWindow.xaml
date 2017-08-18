@@ -7,17 +7,19 @@
         xmlns:Controls="clr-namespace:Arks_SystemTool"
         mc:Ignorable="d"
         Title="{x:Static local:Resources.title_main_window}"
-        Height="350" Width="525" ResizeMode="NoResize"
+        Height="260" Width="525" ResizeMode="NoResize"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         Icon="Resources/icon.ico"
-        Loaded="_Window_Loaded" WindowStartupLocation="CenterOwner">
+        Loaded="_Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="Height">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="290" />
+            <RowDefinition Height="Auto" MinHeight="230" />
             <RowDefinition/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Column="0" Grid.Row="0" ClipToBounds="True">
