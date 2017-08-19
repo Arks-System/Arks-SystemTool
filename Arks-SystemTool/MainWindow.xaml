@@ -7,7 +7,9 @@
         xmlns:Controls="clr-namespace:Arks_SystemTool"
         mc:Ignorable="d"
         Title="{x:Static local:Resources.title_main_window}"
-        Height="260" Width="525" ResizeMode="NoResize"
+        Height="340"
+        Width="525"
+        ResizeMode="NoResize"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         Icon="Resources/icon.ico"
         Loaded="_Window_Loaded"
@@ -19,8 +21,8 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="230" />
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Column="0" Grid.Row="0" ClipToBounds="True">
             <!--WebBrowser Margin="10,10,0,10"
@@ -54,9 +56,16 @@
             <Button x:Name="button_tools"
                     Content="{x:Static local:Resources.button_tools}"
                     Click="_button_tools_Click"/>
-            
+            <Button x:Name="button_about"
+                    Content="{x:Static local:Resources.button_about}"
+                    Click="_button_about_Click"/>
+
         </StackPanel>
-        <DockPanel VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="32" Grid.RowSpan="2" >
+        <DockPanel
+            VerticalAlignment="Bottom"
+            Grid.ColumnSpan="2"
+            Height="32"
+            Grid.Row="1" >
             <StatusBar DockPanel.Dock="Bottom">
                 <!--StatusBarItem>
                     <ProgressBar Height="10" Width="50"/>

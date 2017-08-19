@@ -204,5 +204,12 @@ namespace Arks_SystemTool
             if ((bool)window.ShowDialog())
                 Arks_SystemTool.Properties.Settings.Default.Reload();
         }
+        private void _button_about_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow window = new AboutWindow();
+
+            window.Owner = this;
+            window.ShowDialog();
+        }
     }
 }

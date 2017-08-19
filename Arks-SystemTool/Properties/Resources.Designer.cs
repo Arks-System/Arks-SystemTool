@@ -79,6 +79,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string button_close {
+            get {
+                return ResourceManager.GetString("button_close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filecheck.
         /// </summary>
         public static string button_filecheck {
