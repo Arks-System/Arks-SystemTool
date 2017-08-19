@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arks_SystemTool.Properties"
         mc:Ignorable="d"
-        Title="Tools" Height="300" Width="300"
+        Title="{x:Static local:Resources.title_tools}" Height="300" Width="300"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
@@ -25,7 +25,7 @@
                 </Style>
             </StackPanel.Resources>
             <Button
-                Content="Fix Permissions"
+                Content="{x:Static local:Resources.button_fix_permissions}"
                 Click="button_fix_perm_Click"/>
         </StackPanel>
 

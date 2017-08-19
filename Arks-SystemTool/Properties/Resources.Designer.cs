@@ -79,6 +79,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fix permissions.
+        /// </summary>
+        public static string button_fix_permissions {
+            get {
+                return ResourceManager.GetString("button_fix_permissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Launch.
         /// </summary>
         public static string button_launch {
@@ -326,6 +335,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permissions were fixed..
+        /// </summary>
+        public static string str_permissions_fixed {
+            get {
+                return ResourceManager.GetString("str_permissions_fixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Would you like to install the game in the selected path?.
         /// </summary>
         public static string str_prompt_create_pso2_bin {
@@ -499,6 +517,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permissions fixed.
+        /// </summary>
+        public static string title_permissions_fixed {
+            get {
+                return ResourceManager.GetString("title_permissions_fixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phantasy Star Online 2 is already running.
         /// </summary>
         public static string title_pso2_already_running {
@@ -540,6 +567,15 @@ namespace Arks_SystemTool.Properties {
         public static string title_tool_update_available {
             get {
                 return ResourceManager.GetString("title_tool_update_available", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tools.
+        /// </summary>
+        public static string title_tools {
+            get {
+                return ResourceManager.GetString("title_tools", resourceCulture);
             }
         }
         

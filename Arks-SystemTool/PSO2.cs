@@ -211,16 +211,9 @@ namespace Arks_SystemTool
                 String path = Arks_SystemTool.Properties.Settings.Default.pso2_path + @"\" + e;
                 FileInfo finfo = new FileInfo(path);
                 FileSecurity fsecurity = finfo.GetAccessControl();
-                fsecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null),
-                    rights,
-                    InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
-                    PropagationFlags.NoPropagateInherit,
-                    AccessControlType.Allow));
-                fsecurity.AddAccessRule(new FileSystemAccessRule(Environment.UserName,
-                    rights,
-                    InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
-                    PropagationFlags.NoPropagateInherit,
-                    AccessControlType.Allow));
+                fsecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), rights, AccessControlType.Allow));
+                fsecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.AuthenticatedUserSid, null), rights, AccessControlType.Allow));
+                fsecurity.AddAccessRule(new FileSystemAccessRule(Environment.UserName, rights, AccessControlType.Allow));
                 finfo.SetAccessControl(fsecurity);
             }
         }

@@ -35,7 +35,12 @@ namespace Arks_SystemTool
 
         private void button_fix_perm_Click(object sender, RoutedEventArgs e)
         {
-            this._pso2.SetPermissions(FileSystemRights.ReadAndExecute);
+            //this._pso2.SetPermissions(FileSystemRights.Modify);
+            this._pso2.SetPermissions(FileSystemRights.Modify);
+            MessageBox.Show(Arks_SystemTool.Properties.Resources.str_permissions_fixed,
+                Arks_SystemTool.Properties.Resources.title_permissions_fixed,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
     }
 }

@@ -48,12 +48,13 @@
             <Button x:Name="button_translate"
                     Content="{x:Static local:Resources.button_translate}" 
                     Click="_button_translate_Click"/>
-            <Button x:Name="button_tools"
-                    Content="{x:Static local:Resources.button_tools}"
-                    Click="_button_tools_Click"/>
             <Button x:Name="button_settings"
                     Content="{x:Static local:Resources.button_settings}"
                     Click="_button_settings_Click"/>
+            <Button x:Name="button_tools"
+                    Content="{x:Static local:Resources.button_tools}"
+                    Click="_button_tools_Click"/>
+            
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="32" Grid.RowSpan="2" >
             <StatusBar DockPanel.Dock="Bottom">

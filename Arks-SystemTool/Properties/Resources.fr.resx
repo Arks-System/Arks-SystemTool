@@ -289,4 +289,16 @@ Cliquez sur OK pour réessayer ou annuler pour quitter.</value>
   <data name="title_translation_download" xml:space="preserve">
     <value>Mise à jour de la traduction</value>
   </data>
+  <data name="button_fix_permissions" xml:space="preserve">
+    <value>Réparer les permissions</value>
+  </data>
+  <data name="title_tools" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="str_permissions_fixed" xml:space="preserve">
+    <value>Les permissions ont été réparé.</value>
+  </data>
+  <data name="title_permissions_fixed" xml:space="preserve">
+    <value>Permissions réparé</value>
+  </data>
 </root>

@@ -46,7 +46,7 @@ namespace Arks_SystemTool
         private async Task<bool> _CheckUpdate()
         {
             await Task.Delay(700);
-#if DEBUG
+#if !DEBUG
             if (this._UpdateAvailable())
             {
                 MessageBox.Show(Arks_SystemTool.Properties.Resources.str_tool_update_available,
