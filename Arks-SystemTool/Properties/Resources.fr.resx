@@ -295,6 +295,9 @@ Cliquez sur OK pour réessayer ou annuler pour quitter.</value>
   <data name="title_tools" xml:space="preserve">
     <value>Outils</value>
   </data>
+  <data name="button_about" xml:space="preserve">
+    <value>A propos</value>
+  </data>
   <data name="str_permissions_fixed" xml:space="preserve">
     <value>Les permissions ont été réparé.</value>
   </data>

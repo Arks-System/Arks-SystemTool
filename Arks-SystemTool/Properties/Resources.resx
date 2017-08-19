@@ -297,6 +297,9 @@ Click OK to retry or cancel to exit.</value>
   <data name="title_tools" xml:space="preserve">
     <value>Tools</value>
   </data>
+  <data name="button_about" xml:space="preserve">
+    <value>About us</value>
+  </data>
   <data name="str_permissions_fixed" xml:space="preserve">
     <value>Permissions were fixed.</value>
   </data>

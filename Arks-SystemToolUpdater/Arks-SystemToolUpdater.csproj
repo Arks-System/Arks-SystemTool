@@ -59,9 +59,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)bin\$(TargetFileName)" /Y</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+  copy "$(TargetPath)" "$(SolutionDir)bin\$(TargetFileName)" /Y
+)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"</PreBuildEvent>
+    <PreBuildEvent>if $(ConfigurationName) == Release (
+  if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
+)</PreBuildEvent>
   </PropertyGroup>
 </Project>

@@ -56,4 +56,14 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if $(ConfigurationName) == Release (
+  rem if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
+)</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+  rem copy "$(TargetPath)" "$(SolutionDir)bin\$(TargetFileName)" /Y
+)</PostBuildEvent>
+  </PropertyGroup>
 </Project>

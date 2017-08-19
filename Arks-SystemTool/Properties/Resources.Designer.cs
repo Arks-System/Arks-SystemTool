@@ -61,6 +61,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About us.
+        /// </summary>
+        public static string button_about {
+            get {
+                return ResourceManager.GetString("button_about", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string button_cancel {
