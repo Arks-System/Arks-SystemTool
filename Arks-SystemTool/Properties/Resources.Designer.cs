@@ -19,7 +19,7 @@ namespace Arks_SystemTool.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -75,6 +75,15 @@ namespace Arks_SystemTool.Properties {
         public static string button_cancel {
             get {
                 return ResourceManager.GetString("button_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean GameGuard.
+        /// </summary>
+        public static string button_clean_gg {
+            get {
+                return ResourceManager.GetString("button_clean_gg", resourceCulture);
             }
         }
         
@@ -251,6 +260,15 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GameGuard was cleaned. It will be redownloable upon launch..
+        /// </summary>
+        public static string str_clean_gg {
+            get {
+                return ResourceManager.GetString("str_clean_gg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download cancelled, please run a filecheck..
         /// </summary>
         public static string str_download_cancelled {
@@ -380,7 +398,8 @@ namespace Arks_SystemTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It appears PSO2 is already running.\r\nPlease exit the game or reboot..
+        ///   Looks up a localized string similar to It appears PSO2 is already running.
+        ///Please exit the game or reboot..
         /// </summary>
         public static string str_pso2_already_running {
             get {
@@ -459,6 +478,15 @@ namespace Arks_SystemTool.Properties {
         public static string title_cancelled {
             get {
                 return ResourceManager.GetString("title_cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleanned GameGuard.
+        /// </summary>
+        public static string title_clean_gg {
+            get {
+                return ResourceManager.GetString("title_clean_gg", resourceCulture);
             }
         }
         

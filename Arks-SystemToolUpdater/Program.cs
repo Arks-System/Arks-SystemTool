@@ -58,6 +58,7 @@ namespace Arks_SystemToolUpdater
             Console.WriteLine("Processor count: " + Environment.ProcessorCount);
             Console.WriteLine("Base Directory: " + AppDomain.CurrentDomain.BaseDirectory);
             Console.WriteLine("Full path: " + Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path));
+            Console.Write(typeof(string).Assembly.ImageRuntimeVersion);
             Console.WriteLine("");
         }
     }

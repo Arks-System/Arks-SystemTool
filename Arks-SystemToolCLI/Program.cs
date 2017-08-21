@@ -19,6 +19,8 @@ namespace Arks_SystemToolCLI
 #if DEBUG
             Console.WriteLine("Version: {0} ({1})", PSO2Tools.GetVersion(), PSO2Tools.GetGameVersion());
             Console.WriteLine("Management:\n{0}", PSO2Tools.GetManagement(PSO2Tools.ArksSystemSource));
+            Console.WriteLine("");
+            DebugInfo();
 #endif
 
             Management man = new Management();
@@ -38,6 +40,11 @@ namespace Arks_SystemToolCLI
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
 #endif
+        }
+
+        static void DebugInfo()
+        {
+            Console.WriteLine(typeof(string).Assembly.ImageRuntimeVersion);
         }
     }
 }

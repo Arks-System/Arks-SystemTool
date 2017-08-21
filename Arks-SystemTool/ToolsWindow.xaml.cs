@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -39,6 +40,21 @@ namespace Arks_SystemTool
             this._pso2.SetPermissions(FileSystemRights.Modify);
             MessageBox.Show(Arks_SystemTool.Properties.Resources.str_permissions_fixed,
                 Arks_SystemTool.Properties.Resources.title_permissions_fixed,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+
+        private void button_clean_gg_Click(object sender, RoutedEventArgs e)
+        {
+            String path = Arks_SystemTool.Properties.Settings.Default.pso2_path + @"\GameGuard\";
+
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+                Directory.CreateDirectory(path);
+            }
+            MessageBox.Show(Arks_SystemTool.Properties.Resources.str_clean_gg,
+                Arks_SystemTool.Properties.Resources.title_clean_gg,
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
         }
