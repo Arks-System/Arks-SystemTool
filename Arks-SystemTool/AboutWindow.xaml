@@ -12,7 +12,8 @@
         WindowStyle="ToolWindow"
         WindowStartupLocation="CenterOwner"
         ShowInTaskbar="False"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
