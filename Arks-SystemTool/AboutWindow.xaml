@@ -6,18 +6,52 @@
         xmlns:local="clr-namespace:Arks_SystemTool.Properties"
         mc:Ignorable="d"
         Title="{x:Static local:Resources.title_about}"
-        Height="300"
-        Width="300"
-        SizeToContent="WidthAndHeight"
+        Height="230"
+        Width="390"
+        SizeToContent="Height"
         WindowStyle="ToolWindow"
         WindowStartupLocation="CenterOwner"
-        ShowInTaskbar="False">
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel 
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            VerticalAlignment="Top"
+            Margin="10" HorizontalAlignment="Center">
+            <Image Source="Resources/short_blue_512.png" />
+        </StackPanel>
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="0"
+            Margin="10">
+            <Label x:Name="_label_version" Content="Arks-System Tool"/>
+            <Label Content="https://arks-system.eu"
+                   MouseDoubleClick="_site_double_click"
+                   Foreground="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" />
+            <Label Content="https://arks-system.eu/tool"
+                   MouseDoubleClick="_site_tool_double_click"
+                   Foreground="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" />
+        </StackPanel>
+        
         <Button Content="{x:Static local:Resources.button_close}"
-                HorizontalAlignment="Left"
-                Margin="155,88,0,0"
-                VerticalAlignment="Top"
-                Width="75"/>
+                Width="75"
+                Height="25"
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="10"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Click="_Close_button"
+                />
 
     </Grid>
 </Window>

@@ -307,4 +307,13 @@ Cliquez sur OK pour réessayer ou annuler pour quitter.</value>
   <data name="title_permissions_fixed" xml:space="preserve">
     <value>Permissions réparé</value>
   </data>
+  <data name="button_clean_gg" xml:space="preserve">
+    <value>Nettoyer GameGuard</value>
+  </data>
+  <data name="str_clean_gg" xml:space="preserve">
+    <value>GameGuard a été nettoyé. Il sera retéléchargé au lancement du jeu.</value>
+  </data>
+  <data name="title_clean_gg" xml:space="preserve">
+    <value>GameGuard nettoyé</value>
+  </data>
 </root>

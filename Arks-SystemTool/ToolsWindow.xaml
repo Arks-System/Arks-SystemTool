@@ -27,6 +27,9 @@
             <Button
                 Content="{x:Static local:Resources.button_fix_permissions}"
                 Click="button_fix_perm_Click"/>
+            <Button
+                Content="{x:Static local:Resources.button_clean_gg}"
+                Click="button_clean_gg_Click"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">

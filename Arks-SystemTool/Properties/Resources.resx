@@ -193,7 +193,8 @@ Launch anyway?</value>
     <value>Would you like to update?</value>
   </data>
   <data name="str_pso2_already_running" xml:space="preserve">
-    <value>It appears PSO2 is already running.\r\nPlease exit the game or reboot.</value>
+    <value>It appears PSO2 is already running.
+Please exit the game or reboot.</value>
   </data>
   <data name="str_translation_missmatch" xml:space="preserve">
     <value>It appears the translation version doesn't match the current game version.
@@ -308,5 +309,14 @@ Click OK to retry or cancel to exit.</value>
   </data>
   <data name="title_permissions_fixed" xml:space="preserve">
     <value>Permissions fixed</value>
+  </data>
+  <data name="button_clean_gg" xml:space="preserve">
+    <value>Clean GameGuard</value>
+  </data>
+  <data name="str_clean_gg" xml:space="preserve">
+    <value>GameGuard was cleaned. It will be redownloable upon launch.</value>
+  </data>
+  <data name="title_clean_gg" xml:space="preserve">
+    <value>Cleanned GameGuard</value>
   </data>
 </root>

@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.IO;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace Arks_SystemTool
 {
@@ -32,6 +34,10 @@ namespace Arks_SystemTool
             this._timer = null;
             this._pso2 = pso2;
             InitializeComponent();
+
+            this._label_version.Content = "AST v" + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+            this.button_launch.IsEnabled = false;
+            this._timer = new Timer(this._EnableLaunch, this._pso2, 500, 1000 * 5);
         }
 
         private void _Window_Loaded(object sender, RoutedEventArgs e)
@@ -41,13 +47,12 @@ namespace Arks_SystemTool
                 Application.Current.Dispatcher.Invoke(new Action(() =>
                 {
                     String remoteversion = this._pso2.GetRemoteVersion().Replace("\r\n", "");
-
-                    this._label_version.Content = remoteversion;
+                    
                     if (remoteversion != this._pso2.GetLocalVersion().Replace("\r\n", ""))
                         this._status_label.Content = Arks_SystemTool.Properties.Resources.str_game_out_of_date;
                     else
                         this._status_label.Content = Arks_SystemTool.Properties.Resources.str_game_up_to_date;
-                    //this.button_launch.IsEnabled = !this._pso2.IsRunning();
+                    this._status_label.Content += " (" + remoteversion + ")";
                 }));
             });
             t.Start();
@@ -105,6 +110,12 @@ namespace Arks_SystemTool
             String local_version = this._pso2.GetLocalVersion();
             
             this.button_launch.IsEnabled = false;
+            if (this._pso2.IsRunning())
+            {
+                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_pso2_already_running,
+                    Arks_SystemTool.Properties.Resources.title_pso2_already_running);
+                return;
+            }
             if (local_version != remote_version)
             {
                 if (MessageBox.Show(Arks_SystemTool.Properties.Resources.str_prompt_to_update,
@@ -158,13 +169,11 @@ namespace Arks_SystemTool
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(source);
             List<Patchlist> patchlist = new List<Patchlist>();
-
-            //patchlist += man.GetPatchlist();
+            
             patchlist.AddRange(man.GetPatchlist());
             patchlist.AddRange(man.GetLauncherlist());
 
             DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_filecheck, patchlist);
-            //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist());
             //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
             
             window.Owner = this;
