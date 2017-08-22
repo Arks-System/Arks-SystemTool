@@ -40,7 +40,7 @@ namespace Arks_SystemTool
                 //if (lst[0] == "MasterURL" || lst[0] == "PatchURL")
                 if (repositories.Contains(lst[0]))
                 {
-                    if (!String.IsNullOrEmpty(source))
+                    if (!String.IsNullOrEmpty(source) && source != "http://patch01.pso2gs.net/")
                         lst[1] = lst[1].Replace(PSO2.SegaSource, source);
                     this._base.Add(lst[0], lst[1]);
                 }
