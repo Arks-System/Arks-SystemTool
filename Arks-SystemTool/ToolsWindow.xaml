@@ -17,18 +17,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <!--Button x:Name="button_ok" Content="Button" Click="button_ok_Click"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/-->
         <StackPanel Grid.Row="0">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Margin" Value="5, 5, 5, 5"/>
                 </Style>
             </StackPanel.Resources>
-            <Button
-                Content="{x:Static local:Resources.button_fix_permissions}"
+            
+            <Button Content="{x:Static local:Resources.button_fix_permissions}"
                 Click="button_fix_perm_Click"/>
-            <Button
-                Content="{x:Static local:Resources.button_clean_gg}"
+            <Button Content="{x:Static local:Resources.button_clean_gg}"
                 Click="button_clean_gg_Click"/>
         </StackPanel>
 
@@ -38,8 +36,8 @@
                     <Setter Property="Margin" Value="5, 5, 5, 5"/>
                 </Style>
             </StackPanel.Resources>
-            <Button
-                Content="OK"
+            
+            <Button Content="OK"
                 Click="button_ok_Click"/>
         </StackPanel>
     </Grid>

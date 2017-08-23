@@ -102,29 +102,22 @@ namespace Arks_SystemTool
 
         private bool _CanTranslate()
         {
-            /*
-            Arks_SystemTool.Properties.Settings.Default.translate
-                   && (!String.IsNullOrEmpty(Arks_SystemTool.Properties.Settings.Default.current_patch_version)
-                   && new Version(Arks_SystemTool.Properties.Settings.Default.current_patch_version) < new Version(remote_version)
-                   ))
-            */
             String str_remote = Requests.Get("https://patch.arks-system.eu/patch_prod/translation/gameversion.ver.pat");
             String str_translation = String.IsNullOrEmpty(Arks_SystemTool.Properties.Settings.Default.current_patch_version) ? "0.0.0" : Arks_SystemTool.Properties.Settings.Default.current_patch_version;
+
             Version ver_remote = new Version(str_remote);
             Version ver_translation = new Version(str_translation);
             Version ver_pso2 = new Version(this._pso2.GetRemoteVersion());
 
-            if (Arks_SystemTool.Properties.Settings.Default.translate)
-            {
-                if (ver_translation < ver_remote && ver_remote == ver_pso2)
-                    return (true);
-
-            }
-            return (false);
+            return (Arks_SystemTool.Properties.Settings.Default.translate
+                && ver_translation < ver_remote
+                && ver_remote == ver_pso2);
         }
 
         private void _button_launch_Click(object sender, RoutedEventArgs e)
         {
+            this.button_launch.IsEnabled = false;
+
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(source);
             String censorship_file = String.Format(@"{0}\data\win32\ffbff2ac5b7a7948961212cefd4d402c", Arks_SystemTool.Properties.Settings.Default.pso2_path);
@@ -156,7 +149,8 @@ namespace Arks_SystemTool
                     this._button_filecheck_Click(sender, e);
                 }
             }
-            if (Arks_SystemTool.Properties.Settings.Default.remove_censorship && File.Exists(censorship_file))
+            if (Arks_SystemTool.Properties.Settings.Default.remove_censorship
+                && File.Exists(censorship_file))
                 File.Delete(censorship_file);
             if (this._CanTranslate())
             {

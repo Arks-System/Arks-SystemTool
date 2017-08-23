@@ -38,7 +38,8 @@ namespace Arks_SystemTool
             InitializeComponent();
             this.Title = title;
             //this._max_threads = 4;
-            this._max_threads = Environment.ProcessorCount;
+            this._max_threads = 2;
+            //this._max_threads = Environment.ProcessorCount;
             this._patchlist = patchlist;
             this._patchsets = new List<List<Patchlist>>(this._max_threads);
             for (int i = 0; i < this._max_threads; ++i)
@@ -103,18 +104,11 @@ namespace Arks_SystemTool
             List<Patchlist> patchlist = e.Argument as List<Patchlist>;
             BackgroundWorker worker = sender as BackgroundWorker;
 
-#if DEBUG
-            Console.WriteLine("Starting thread to treat {0} files", patchlist.Count);
-#endif
             foreach (var elem in patchlist)
             {
                 bool downloaded = false;
                 String path = String.Format(@"{0}\{1}", Arks_SystemTool.Properties.Settings.Default.pso2_path, elem.path.Replace("/", @"\"));
 
-#if DEBUG
-                Console.WriteLine(elem.url);
-                Console.WriteLine(path);
-#endif
                 if (worker.CancellationPending)
                 {
                     e.Cancel = true;
@@ -122,11 +116,6 @@ namespace Arks_SystemTool
                 }
                 if (!File.Exists(path) || !elem.IsSame(path))
                 {
-#if DEBUG
-                    Console.WriteLine(path);
-                    Console.WriteLine(elem.url);
-                    Console.WriteLine("Missmatch!");
-#endif
                     try
                     {
                         Requests.Download(elem.url, path);
@@ -155,21 +144,13 @@ namespace Arks_SystemTool
                         }));
                     }
                 }
-#if DEBUG
-                else
-                {
-                    Console.WriteLine("We have a match!"); 
-                }
-#endif
                 worker.ReportProgress(downloaded ? 1 : 0);
-                //Thread.Sleep(700);
             }
         }
 
         private void _button_cancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
-            // Cancel threads!!!!!
             this.Close();
         }
 

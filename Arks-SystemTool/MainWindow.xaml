@@ -25,10 +25,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Column="0" Grid.Row="0" ClipToBounds="True">
-            <!--WebBrowser Margin="10,10,0,10"
-                        Source="https://tool.arks-system.eu/tool.php"
-                        ScrollViewer.VerticalScrollBarVisibility="Auto"
-                        /-->
             <Controls:HomeControl Margin="5,10,0,5"/>
         </DockPanel>
         <StackPanel Grid.Column="1" Grid.Row="0">
@@ -43,7 +39,9 @@
             </StackPanel.Resources>
             <Button x:Name="button_launch"
                     Content="{x:Static local:Resources.button_launch}"
-                    Width="75" Height="60" Click="_button_launch_Click" FontWeight="Bold"/>
+                    Height="60"
+                    Click="_button_launch_Click"
+                    FontWeight="Bold"/>
             <Button x:Name="button_filecheck"
                     Content="{x:Static local:Resources.button_filecheck}" 
                     Click="_button_filecheck_Click"/>
@@ -59,7 +57,6 @@
             <Button x:Name="button_about"
                     Content="{x:Static local:Resources.button_about}"
                     Click="_button_about_Click"/>
-
         </StackPanel>
         <DockPanel
             VerticalAlignment="Bottom"
@@ -67,9 +64,6 @@
             Height="32"
             Grid.Row="1" >
             <StatusBar DockPanel.Dock="Bottom">
-                <!--StatusBarItem>
-                    <ProgressBar Height="10" Width="50"/>
-                </StatusBarItem-->
                 <StatusBarItem>
                     <Label x:Name="_status_label" 
                         Content="{x:Static local:Resources.str_checking}"/>
@@ -80,6 +74,5 @@
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>
-
     </Grid>
 </Window>

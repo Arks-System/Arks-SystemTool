@@ -57,7 +57,6 @@ namespace Arks_SystemToolUpdater
                     if (toollist[0] == "ProductVersion")
                     {
                         Version remote = new Version(toollist[1]);
-                        //Version local = Assembly.GetExecutingAssembly().GetName().Version;
                         Version local = new Version(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion);
 
                         return (remote > local);

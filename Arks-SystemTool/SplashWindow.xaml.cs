@@ -46,17 +46,17 @@ namespace Arks_SystemTool
         private async Task<bool> _CheckUpdate()
         {
             await Task.Delay(700);
-#if !DEBUG
             if (this._UpdateAvailable())
             {
                 MessageBox.Show(Arks_SystemTool.Properties.Resources.str_tool_update_available,
                     Arks_SystemTool.Properties.Resources.title_tool_update_available,
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
+#if !DEBUG
                 this._UpdateArksSystemTool();
                 return (true);
-            }
 #endif
+            }
             return (false);
         }
 
@@ -64,8 +64,7 @@ namespace Arks_SystemTool
         {
             PSO2 pso2 = new PSO2();
             MainWindow window = new MainWindow(pso2);
-
-            //window.Owner = this;
+            
             this.Hide();
             window.ShowDialog();
         }
@@ -119,19 +118,6 @@ namespace Arks_SystemTool
             {
                 Console.WriteLine(we.Message);
             }
-            /*
-            if (File.Exists(updater))
-            {
-                Process p = Process.Start(updater);
-            }
-            else
-            {
-                MessageBox.Show(Arks_SystemTool.Properties.Resources.str_no_updater_found,
-                    Arks_SystemTool.Properties.Resources.title_no_updater_found,
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-            }
-            */
         }
     }
 }

@@ -37,7 +37,6 @@ namespace Arks_SystemTool
             foreach (var e in management.Split('\n'))
             {
                 List<String> lst = new List<String>(e.Replace("\r", "").Split('='));
-                //if (lst[0] == "MasterURL" || lst[0] == "PatchURL")
                 if (repositories.Contains(lst[0]))
                 {
                     if (!String.IsNullOrEmpty(source) && source != "http://patch01.pso2gs.net/")

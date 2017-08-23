@@ -55,11 +55,10 @@ namespace Arks_SystemTool
         {
             String pso2 = this.gamepath + @"\pso2.exe";
 
-            if (File.Exists(pso2) && !this.IsRunning())
+            if (force || (File.Exists(pso2) && !this.IsRunning()))
             {
                 Environment.SetEnvironmentVariable("-pso2", "+0x01e3f1e9");
                 Process.Start(pso2, "+0x33aca2b9");
-                //Thread.Sleep(2000);
             }
         }
 
@@ -141,11 +140,7 @@ namespace Arks_SystemTool
 
                         this.gamepath = Directory.GetParent(pso2).FullName;
                         if (!Directory.Exists(this.gamepath))
-                        {
-                            //Directory.CreateDirectory(this.gamepath);
-                            //Directory.CreateDirectory(this.gamepath + @"\data\");
                             Directory.CreateDirectory(this.gamepath + @"\data\win32\");
-                        }
                         Requests.Download(man.GetPatchBaseURL() + "/pso2.exe", this.gamepath + @"\pso2.exe");
                     }
                     else if (mb_result == MessageBoxResult.No)
@@ -176,17 +171,12 @@ namespace Arks_SystemTool
                 version_file.Write(version + "\r\n");
             }
         }
-            public void ForceTranslationVersion(String version)
+
+        public void ForceTranslationVersion(String version)
         {
             Arks_SystemTool.Properties.Settings.Default.current_patch_version = version;
             Arks_SystemTool.Properties.Settings.Default.Save();
             Arks_SystemTool.Properties.Settings.Default.Reload();
-            /*
-            using (var version_file = new StreamWriter(this.gamepath + @"\translation.ver"))
-            {
-                version_file.Write(version + "\r\n");
-            }
-            */
         }
 
         public bool IsRunning()

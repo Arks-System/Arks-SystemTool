@@ -18,8 +18,7 @@ namespace Arks_SystemToolUpdater
             DebugInfo();
 #endif
             Arks_SystemTool arks = new Arks_SystemTool(AppDomain.CurrentDomain.BaseDirectory + "Arks-SystemTool.exe");
-
-            //Console.WriteLine("Arks-SystemTool.exe ({0}) as {1}", arks.GetASTVersion(), arks.GetMD5());
+            
             Console.WriteLine("User-Agent: {0}", Requests.UserAgent);
 
             Console.WriteLine("");
