@@ -63,8 +63,9 @@ namespace Arks_SystemTool
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(this._management.Sources[1]);
             DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_translation_download, man.GetPatchlist(man.Bases["TranslationURL"]));
+            String str_local = this._pso2.GetLocalVersion();
 
-            if (!force || Arks_SystemTool.Properties.Settings.Default.current_patch_version == this._pso2.GetLocalVersion())
+            if (!force && Arks_SystemTool.Properties.Settings.Default.current_patch_version == str_local)
                 return;
 
             window.Owner = this;
