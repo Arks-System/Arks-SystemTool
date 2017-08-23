@@ -88,8 +88,8 @@ namespace Arks_SystemTool
             {
                 Application.Current.Dispatcher.Invoke(new Action(() =>
                 {
-                    this._timer.Dispose();
-                    this._timer = null;
+                    if (this._timer != null)
+                        this._timer.Dispose();
                     this.button_launch.IsEnabled = true;
                 }));
             }
@@ -97,6 +97,29 @@ namespace Arks_SystemTool
             {
                 Console.WriteLine(e.Message);
             }
+        }
+
+        private bool _CanTranslate()
+        {
+            /*
+            Arks_SystemTool.Properties.Settings.Default.translate
+                   && (!String.IsNullOrEmpty(Arks_SystemTool.Properties.Settings.Default.current_patch_version)
+                   && new Version(Arks_SystemTool.Properties.Settings.Default.current_patch_version) < new Version(remote_version)
+                   ))
+            */
+            String str_remote = Requests.Get("https://patch.arks-system.eu/patch_prod/translation/gameversion.ver.pat");
+            String str_translation = String.IsNullOrEmpty(Arks_SystemTool.Properties.Settings.Default.current_patch_version) ? "0.0.0" : Arks_SystemTool.Properties.Settings.Default.current_patch_version;
+            Version ver_remote = new Version(str_remote);
+            Version ver_translation = new Version(str_translation);
+            Version ver_pso2 = new Version(this._pso2.GetRemoteVersion());
+
+            if (Arks_SystemTool.Properties.Settings.Default.translate)
+            {
+                if (ver_translation < ver_remote && ver_remote == ver_pso2)
+                    return (true);
+
+            }
+            return (false);
         }
 
         private void _button_launch_Click(object sender, RoutedEventArgs e)
@@ -134,8 +157,7 @@ namespace Arks_SystemTool
             }
             if (Arks_SystemTool.Properties.Settings.Default.remove_censorship && File.Exists(censorship_file))
                 File.Delete(censorship_file);
-            if (Arks_SystemTool.Properties.Settings.Default.translate
-                && Arks_SystemTool.Properties.Settings.Default.current_patch_version != remote_version)
+            if (this._CanTranslate())
             {
                 if (MessageBox.Show(Arks_SystemTool.Properties.Resources.str_translation_missmatch,
                     Arks_SystemTool.Properties.Resources.title_translation_update,
@@ -185,6 +207,7 @@ namespace Arks_SystemTool
                 Arks_SystemTool.Properties.Settings.Default.current_patch_version = String.Empty;
                 Arks_SystemTool.Properties.Settings.Default.Save();
                 Arks_SystemTool.Properties.Settings.Default.Reload();
+                this._Window_Loaded(sender, e);
             }
             else
             {

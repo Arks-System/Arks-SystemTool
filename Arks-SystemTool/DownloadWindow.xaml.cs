@@ -197,6 +197,7 @@ namespace Arks_SystemTool
             {
                 this._progress.Value += 1;
                 this.IsEnabled = false;
+                this._timer.Dispose();
                 MessageBox.Show(Arks_SystemTool.Properties.Resources.str_download_completed,
                     Arks_SystemTool.Properties.Resources.title_download_completed,
                     MessageBoxButton.OK,
