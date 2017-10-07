@@ -38,6 +38,9 @@ namespace Arks_SystemTool
             this._label_version.Content = "AST v" + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
             this.button_launch.IsEnabled = false;
             this._timer = new Timer(this._EnableLaunch, this._pso2, 500, 1000 * 5);
+#if DEBUG
+            this.Title += " [DEBUG]";
+#endif
         }
 
         private void _Window_Loaded(object sender, RoutedEventArgs e)

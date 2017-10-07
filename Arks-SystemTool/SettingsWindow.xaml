@@ -12,7 +12,6 @@
         Icon="Resources/icon.ico"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
         Loaded="_Window_Loaded"
-        ShowInTaskbar="False"
         SizeToContent="Height">
     <Grid>
         <Grid.ColumnDefinitions>

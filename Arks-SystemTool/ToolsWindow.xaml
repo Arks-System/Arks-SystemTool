@@ -10,8 +10,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
         Icon="Resources/icon.ico"
-        SizeToContent="Height"
-        ShowInTaskbar="False">
+        SizeToContent="Height">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

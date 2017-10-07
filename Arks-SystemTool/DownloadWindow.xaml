@@ -11,9 +11,11 @@
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterOwner"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-        ShowInTaskbar="False"
         Loaded="_Window_Loaded" Closing="_Window_Closing"
         SizeToContent="Height">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo x:Name="_taskbar"/>
+    </Window.TaskbarItemInfo>
     <Grid>
         <Label x:Name="_count_label" Content="0 / ? (0.00%)"
                HorizontalAlignment="Center"
@@ -31,8 +33,9 @@
             Height="10"
             Margin="10,0,10,0"
             VerticalAlignment="Center"
-            Width="Auto" ValueChanged="_progress_Change"
-            IsIndeterminate="True" />
+            Width="Auto"
+            IsIndeterminate="True"
+            ValueChanged="_progress_Change"/>
         <Button
             Content="{x:Static local:Resources.button_cancel}" HorizontalAlignment="Center"
             Margin="0,126,0,10"
