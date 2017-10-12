@@ -141,7 +141,7 @@ namespace Arks_SystemTool
                         this.gamepath = Directory.GetParent(pso2).FullName;
                         if (!Directory.Exists(this.gamepath))
                             Directory.CreateDirectory(this.gamepath + @"\data\win32\");
-                        Requests.Download(man.GetPatchBaseURL() + "/pso2.exe", this.gamepath + @"\pso2.exe");
+                        Requests.Download(man.GetPatchBaseURL() + "/pso2.exe.pat", this.gamepath + @"\pso2.exe");
                     }
                     else if (mb_result == MessageBoxResult.No)
                     {

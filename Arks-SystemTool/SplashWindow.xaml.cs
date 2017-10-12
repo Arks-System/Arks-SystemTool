@@ -62,11 +62,19 @@ namespace Arks_SystemTool
 
         private void _SpawnMainWindow()
         {
-            PSO2 pso2 = new PSO2();
-            MainWindow window = new MainWindow(pso2);
-            
-            this.Hide();
-            window.ShowDialog();
+            try
+            {
+                PSO2 pso2 = new PSO2();
+                MainWindow window = new MainWindow(pso2);
+
+                this.Hide();
+                window.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.StackTrace);
+            }
         }
 
         private bool _UpdateAvailable()
