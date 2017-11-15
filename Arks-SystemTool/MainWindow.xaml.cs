@@ -106,7 +106,7 @@ namespace Arks_SystemTool
         private bool _CanTranslate()
         {
             String str_remote = Requests.Get("https://patch.arks-system.eu/patch_prod/translation/gameversion.ver.pat");
-            String str_translation = String.IsNullOrEmpty(Arks_SystemTool.Properties.Settings.Default.current_patch_version) ? "0.0.0" : Arks_SystemTool.Properties.Settings.Default.current_patch_version;
+            String str_translation = String.IsNullOrEmpty(Arks_SystemTool.Properties.Settings.Default.current_patch_version) ? "0.0.0.0" : Arks_SystemTool.Properties.Settings.Default.current_patch_version;
 
             Version ver_remote = new Version(String.IsNullOrEmpty(str_remote) ? "0.0.0.0" : str_remote);
             Version ver_translation = new Version(str_translation);
