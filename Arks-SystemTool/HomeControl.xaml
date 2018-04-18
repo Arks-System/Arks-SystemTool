@@ -42,7 +42,7 @@
                 Link="http://bumped.org/psublog/"/>
             <Controls:LinkButtonControl
                 Label="Arks-Visiophone"
-                Link="https://pso2.arks-visiphone.com/wiki/Main_Page"/>
+                Link="https://pso2.arks-visiphone.com/"/>
             <Controls:LinkButtonControl
                 Label="Skill Tree Simulator"
                 Link="http://arks-layer.com/skillsim/skillcalc.php"/>

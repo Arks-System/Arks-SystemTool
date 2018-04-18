@@ -73,6 +73,7 @@ namespace Arks_SystemTool
             this._progress.IsIndeterminate = false;
             ParallelOptions para_opt = new ParallelOptions();
 
+            this._patchlist.Sort((a, b) => (a.size.CompareTo(b.size)));
             para_opt.MaxDegreeOfParallelism = this._max_threads;
             para_opt.CancellationToken = this._cts.Token;
             try
