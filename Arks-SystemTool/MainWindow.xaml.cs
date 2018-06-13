@@ -190,8 +190,8 @@ namespace Arks_SystemTool
             Management man = new Management(source);
             List<Patchlist> patchlist = new List<Patchlist>();
             
-            patchlist.AddRange(man.GetPatchlist());
             patchlist.AddRange(man.GetLauncherlist());
+            patchlist.AddRange(man.GetPatchlist());
 
             DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_filecheck, patchlist);
             //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));

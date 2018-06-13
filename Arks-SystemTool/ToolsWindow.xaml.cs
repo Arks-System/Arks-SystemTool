@@ -50,8 +50,13 @@ namespace Arks_SystemTool
 
             if (Directory.Exists(path))
             {
-                Directory.Delete(path, true);
-                Directory.CreateDirectory(path);
+                foreach (var f in Directory.GetFiles(path))
+                {
+                    if (!f.EndsWith(".sys") && File.Exists(f))
+                        File.Delete(f);
+                }
+                //Directory.Delete(path, true);
+                //Directory.CreateDirectory(path);
             }
             MessageBox.Show(Arks_SystemTool.Properties.Resources.str_clean_gg,
                 Arks_SystemTool.Properties.Resources.title_clean_gg,

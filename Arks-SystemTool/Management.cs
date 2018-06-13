@@ -53,7 +53,7 @@ namespace Arks_SystemTool
             if (String.IsNullOrEmpty(sourceBase))
                 sourceBase = this._base["PatchURL"];
 
-            String url = sourceBase + "/patchlist.txt";
+            String url = sourceBase + "patchlist.txt";
             foreach (String e in Requests.Get(url).Trim('\r').Split('\n'))
             {
                 if (e.Length > 0)
@@ -66,7 +66,7 @@ namespace Arks_SystemTool
 
         public List<Patchlist> GetLauncherlist()
         {
-            String r = Requests.Get(this._base["PatchURL"] + "/launcherlist.txt");
+            String r = Requests.Get(this._base["PatchURL"] + "launcherlist.txt");
             List<Patchlist> patchlist = new List<Patchlist>();
 
             foreach (var e in r.Split('\n'))
