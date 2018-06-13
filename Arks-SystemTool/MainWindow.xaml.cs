@@ -199,7 +199,7 @@ namespace Arks_SystemTool
             window.Owner = this;
             if ((bool)window.ShowDialog())
             {
-                String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.ver.pat");
+                String version = Requests.Get(man.GetPatchBaseURL() + @"gameversion.ver.pat");
                 
                 this._pso2.ForceGameVersion(version);
                 Arks_SystemTool.Properties.Settings.Default.current_patch_version = String.Empty;
