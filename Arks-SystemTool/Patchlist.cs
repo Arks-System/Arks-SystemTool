@@ -8,6 +8,14 @@ using System.IO;
 
 namespace Arks_SystemTool
 {
+    public enum DL_TYPE
+    {
+        DL_ANY = 0,
+        DL_UPDATE = 1,
+        DL_TRANSLATION = 2
+    };
+
+    [Serializable]
     public class Patchlist
     {
         private List<String> _line;
@@ -25,7 +33,7 @@ namespace Arks_SystemTool
         {
             get
             {
-                return (String.Join("\t", this._line));
+                return (String.Join("\t", this._line).Trim('\r'));
             }
         }
 

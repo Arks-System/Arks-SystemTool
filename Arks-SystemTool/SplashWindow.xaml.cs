@@ -31,6 +31,9 @@ namespace Arks_SystemTool
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-BE");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr");
             InitializeComponent();
+            Arks_SystemTool.Properties.Settings.Default.update_source = 0;
+            Arks_SystemTool.Properties.Settings.Default.Save();
+            Arks_SystemTool.Properties.Settings.Default.Reload();
         }
 
         private async void _Window_Rendered(object sender, EventArgs e)
@@ -62,19 +65,20 @@ namespace Arks_SystemTool
 
         private void _SpawnMainWindow()
         {
+            PSO2 pso2 = null;
             try
-            {
-                PSO2 pso2 = new PSO2();
-                MainWindow window = new MainWindow(pso2);
-
-                this.Hide();
-                window.ShowDialog();
+            { 
+                pso2 = new PSO2();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show(ex.StackTrace);
             }
+            MainWindow window = new MainWindow(pso2);
+
+            this.Hide();
+            window.ShowDialog();
         }
 
         private bool _UpdateAvailable()

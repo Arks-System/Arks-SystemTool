@@ -35,9 +35,10 @@ namespace Arks_SystemTool
         private int _downloaded;
         private CancellationTokenSource _cts;
 
-        public DownloadkWindow(String title, List<Patchlist> patchlist = null)
+        public DownloadkWindow(String title, List<Patchlist> patchlist, Management man, DL_TYPE dl = DL_TYPE.DL_ANY)
         {
             InitializeComponent();
+
             this.Title = title;
             this._max_threads = Environment.ProcessorCount;
             this._patchlist = patchlist;
@@ -51,6 +52,22 @@ namespace Arks_SystemTool
             this._errors = 0;
             this._errors_label.Content = "";
             this._cts = new CancellationTokenSource();
+
+            if (dl == DL_TYPE.DL_UPDATE && Properties.Settings.Default.patchlist.Length > 100)
+            {
+                List<String> savedpl = Properties.Settings.Default.patchlist.Split(new char[] {'\r','\n'}, StringSplitOptions.RemoveEmptyEntries).ToList();
+                List<String> strpatchlist = new List<string>();
+                foreach (var e in patchlist)
+                    strpatchlist.Add(e.ToString);
+                var shortpl = strpatchlist.Except(savedpl).ToList();
+
+                this._patchlist.Clear();
+                foreach (var e in shortpl)
+                {
+                    if (!String.IsNullOrEmpty(e))
+                    this._patchlist.Add(new Patchlist(e, man));
+                }
+            }
         }
 
         private void _ElapsedTimer(object state)

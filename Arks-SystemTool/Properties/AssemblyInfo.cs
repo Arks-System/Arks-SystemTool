@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Arks-System")]
 [assembly: AssemblyProduct("Arks-System Tool")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -54,4 +54,4 @@ using System.Windows;
 // by using the '*' as shown below:
 //[assembly: AssemblyVersion("4.0.*")]
 [assembly: AssemblyVersion("4.0.0.4")]
-[assembly: AssemblyFileVersion("4.0.1.9")]
+[assembly: AssemblyFileVersion("4.0.2.1")]

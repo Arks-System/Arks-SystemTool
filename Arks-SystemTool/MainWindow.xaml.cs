@@ -65,7 +65,7 @@ namespace Arks_SystemTool
         {
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(this._management.Sources[1]);
-            DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_translation_download, man.GetPatchlist(man.Bases["TranslationURL"]));
+            DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_translation_download, man.GetPatchlist(man.Bases["TranslationURL"]), man);
             String str_local = this._pso2.GetLocalVersion();
 
             if (!force && Arks_SystemTool.Properties.Settings.Default.current_patch_version == str_local)
@@ -86,7 +86,7 @@ namespace Arks_SystemTool
 
         private void _EnableLaunch(object o)
         {
-            if (this._pso2.IsRunning())
+            if (this._pso2 != null && this._pso2.IsRunning())
                 return;
             try
             {
@@ -150,6 +150,7 @@ namespace Arks_SystemTool
                 else
                 {
                     this._button_filecheck_Click(sender, e);
+                    return;
                 }
             }
             if (Arks_SystemTool.Properties.Settings.Default.remove_censorship
@@ -186,6 +187,7 @@ namespace Arks_SystemTool
 
         private void _button_filecheck_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder sb = new StringBuilder(4096000);
             String source = this._management.Sources[Arks_SystemTool.Properties.Settings.Default.update_source];
             Management man = new Management(source);
             List<Patchlist> patchlist = new List<Patchlist>();
@@ -193,7 +195,7 @@ namespace Arks_SystemTool
             patchlist.AddRange(man.GetLauncherlist());
             patchlist.AddRange(man.GetPatchlist());
 
-            DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_filecheck, patchlist);
+            DownloadkWindow window = new DownloadkWindow(Arks_SystemTool.Properties.Resources.title_filecheck, patchlist, man);
             //DownloadkWindow window = new DownloadkWindow(man.GetPatchlist(man.Bases["TranslationURL"]));
             
             window.Owner = this;
@@ -212,7 +214,13 @@ namespace Arks_SystemTool
                 MessageBox.Show(Arks_SystemTool.Properties.Resources.str_download_cancelled,
                     Arks_SystemTool.Properties.Resources.title_filecheck);
             }
-            patchlist.Clear();
+
+            foreach (var patchline in patchlist)
+            {
+                sb.AppendLine(patchline.ToString);
+            }
+            Properties.Settings.Default.patchlist = sb.ToString();
+            Properties.Settings.Default.Save();
         }
 
         private void _button_translate_Click(object sender, RoutedEventArgs e)
