@@ -41,7 +41,7 @@
                 Label="Bumped"
                 Link="http://bumped.org/psublog/"/>
             <Controls:LinkButtonControl
-                Label="Arks-Visiophone"
+                Label="Arks-Visiphone"
                 Link="https://pso2.arks-visiphone.com/"/>
             <Controls:LinkButtonControl
                 Label="Skill Tree Simulator"

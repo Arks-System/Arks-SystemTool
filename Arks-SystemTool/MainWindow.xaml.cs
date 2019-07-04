@@ -74,8 +74,8 @@ namespace Arks_SystemTool
             window.Owner = this;
             if ((bool)window.ShowDialog())
             {
-                String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.ver.pat");
-                this._pso2.ForceTranslationVersion(version);
+                //String version = Requests.Get(man.GetPatchBaseURL() + @"/gameversion.ver.pat");
+                this._pso2.ForceTranslationVersion(str_local);
             }
             else
             {
@@ -108,6 +108,8 @@ namespace Arks_SystemTool
             String str_remote = Requests.Get("https://patch.arks-system.eu/patch_prod/translation/gameversion.ver.pat");
             String str_translation = String.IsNullOrEmpty(Arks_SystemTool.Properties.Settings.Default.current_patch_version) ? "0.0.0.0" : Arks_SystemTool.Properties.Settings.Default.current_patch_version;
 
+						if (str_translation.Length > 32)
+							str_translation = "0.0.0.0";
             Version ver_remote = new Version(String.IsNullOrEmpty(str_remote) ? "0.0.0.0" : str_remote);
             Version ver_translation = new Version(str_translation);
             Version ver_pso2 = new Version(this._pso2.GetRemoteVersion());
