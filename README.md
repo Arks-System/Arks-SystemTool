@@ -1,6 +1,8 @@
 Arks-System Tool (v4)
 =====================
 
+As of September 1st 2019 this launcher still works but it will no longer be supported and might break in the future. If there are any issues do not hesitate to report them, but I cannot guarantee that they will be fixed.
+
 Another launcher for PSO2. Can update, translate partially and launch the game.  
 It also provides fixes like applying the right rights to the binaries and removing GameGuard's folder to redownload it.
 
