@@ -216,13 +216,6 @@ namespace Arks_SystemTool
                 MessageBox.Show(Arks_SystemTool.Properties.Resources.str_download_cancelled,
                     Arks_SystemTool.Properties.Resources.title_filecheck);
             }
-
-            foreach (var patchline in patchlist)
-            {
-                sb.AppendLine(patchline.ToString);
-            }
-            Properties.Settings.Default.patchlist = sb.ToString();
-            Properties.Settings.Default.Save();
         }
 
         private void _button_translate_Click(object sender, RoutedEventArgs e)

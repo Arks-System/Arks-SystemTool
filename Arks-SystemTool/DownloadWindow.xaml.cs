@@ -111,7 +111,6 @@ namespace Arks_SystemTool
                     {
                         Trace.WriteLine(ope.Message);
                         Trace.WriteLine(ope.StackTrace);
-                        Trace.WriteLine("This is fine !");
                     }
 
                 }, this._cts.Token);
